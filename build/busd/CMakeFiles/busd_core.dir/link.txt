@@ -1,0 +1,2 @@
+/usr/bin/ar qc libbusd_core.a CMakeFiles/busd_core.dir/ModuleManager.cpp.o
+/usr/bin/ranlib libbusd_core.a

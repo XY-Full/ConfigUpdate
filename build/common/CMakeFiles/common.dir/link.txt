@@ -1,0 +1,2 @@
+/usr/bin/ar qc libcommon.a CMakeFiles/common.dir/EpollWrapper.cpp.o CMakeFiles/common.dir/SocketWrapper.cpp.o
+/usr/bin/ranlib libcommon.a

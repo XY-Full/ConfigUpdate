@@ -1,0 +1,7 @@
+syntax = "proto3";
+
+// 更新配置
+message ConfigUpdate
+{
+    repeated string update_file = 1; // 更新文件列表
+}

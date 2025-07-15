@@ -1,0 +1,5 @@
+nohup.out
+test*
+config_update*
+*.swp
+compile_commands.json

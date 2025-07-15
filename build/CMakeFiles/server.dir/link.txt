@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/server.dir/main.cpp.o -o server   -L/root/config_up/protobuf/lib  -Wl,-rpath,/root/config_up/protobuf/lib network/libnetwork_proto.a common/libcommon.a busd/libbusd_core.a logic/liblogic_modules.a -lprotobuf -lpthread common/libcommon.a busd/libbusd_core.a 

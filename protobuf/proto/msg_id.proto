@@ -1,0 +1,7 @@
+syntax = "proto3";
+package MSGID;
+
+enum MsgID
+{
+    CS_CONFIG_UPDATE    = 0; // 配置更新
+}
