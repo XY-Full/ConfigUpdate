@@ -1,2 +1,0 @@
-/usr/bin/ar qc libnetwork_proto.a CMakeFiles/network_proto.dir/TcpServer.cpp.o
-/usr/bin/ranlib libnetwork_proto.a

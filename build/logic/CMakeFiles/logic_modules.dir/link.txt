@@ -1,2 +1,0 @@
-/usr/bin/ar qc liblogic_modules.a CMakeFiles/logic_modules.dir/ConfigUpdate.cpp.o
-/usr/bin/ranlib liblogic_modules.a

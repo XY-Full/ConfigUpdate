@@ -1,2 +1,0 @@
-/usr/bin/ar qc libcommon.a CMakeFiles/common.dir/proto_files/base.pb.cc.o CMakeFiles/common.dir/proto_files/msg_id.pb.cc.o
-/usr/bin/ranlib libcommon.a
