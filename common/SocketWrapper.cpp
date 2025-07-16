@@ -35,14 +35,14 @@ bool SocketWrapper::sendAll(const std::string& data)
     return true;
 }
 
-bool SocketWrapper::recvAll(std::string& out, size_t size) 
+bool SocketWrapper::recvAll(std::string& out, size_t size, bool use_peek) 
 {
     out.clear();
     while (out.size() < size) 
     {
         char buf[1024];
         size_t to_read = std::min(sizeof(buf), size - out.size());
-        ssize_t n = recv(sock_fd_, buf, to_read, 0);
+        ssize_t n = recv(sock_fd_, buf, to_read, use_peek ? MSG_PEEK : 0);
         if (n < 0) 
         {
             if (errno == EAGAIN || errno == EWOULDBLOCK) 

@@ -12,7 +12,7 @@ public:
     void close();
 
     bool sendAll(const std::string& data);
-    bool recvAll(std::string& out, size_t expected_len);
+    bool recvAll(std::string& out, size_t expected_len, bool use_peek = false);
 
 private:
     int sock_fd_;
