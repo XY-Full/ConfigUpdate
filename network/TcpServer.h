@@ -1,6 +1,7 @@
 #pragma once
 #include "Channel.h"
 #include "EpollWrapper.h"
+#include "NetPack.h"
 #include "SocketWrapper.h"
 #include <unordered_map>
 #include <thread>
@@ -11,8 +12,8 @@ class TcpServer
 {
 public:
     TcpServer(int port,
-              Channel<std::pair<int64_t, std::string>>* in,
-              Channel<std::pair<int64_t, std::string>>* out);
+              Channel<std::pair<int64_t, std::shared_ptr<NetPack>>>* in,
+              Channel<std::pair<int64_t, std::shared_ptr<NetPack>>>* out);
     ~TcpServer();
 
     void start();
@@ -33,6 +34,6 @@ private:
     std::thread out_thread_;
     std::atomic<bool> running_{false};
 
-    Channel<std::pair<int64_t, std::string>>* server_to_busd;
-    Channel<std::pair<int64_t, std::string>>* busd_to_server;
+    Channel<std::pair<int64_t, std::shared_ptr<NetPack>>>* server_to_busd;
+    Channel<std::pair<int64_t, std::shared_ptr<NetPack>>>* busd_to_server;
 };

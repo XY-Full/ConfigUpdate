@@ -16,7 +16,7 @@ int main() {
 
     sockaddr_in server_addr{};
     server_addr.sin_family = AF_INET;
-    server_addr.sin_port = htons(8888);
+    server_addr.sin_port = htons(8887);
     inet_pton(AF_INET, "127.0.0.1", &server_addr.sin_addr);
 
     if (connect(sock, (sockaddr*)&server_addr, sizeof(server_addr)) < 0) {
@@ -28,7 +28,7 @@ int main() {
     int32_t seq = 1;
     int32_t msg_id = 1;
     ConfigUpdate config_update;
-    config_update.add_update_file("123");
+    config_update.add_update_file("321");
     std::string pb_data;
     config_update.SerializeToString(&pb_data);
 

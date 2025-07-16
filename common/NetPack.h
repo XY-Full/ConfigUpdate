@@ -11,6 +11,6 @@ struct NetPack
     int32_t msg_id = 0;
     std::string msg;
 
-    std::string serialize() const;
-    static NetPack deserialize(const std::string& data);
+    std::shared_ptr<std::string> serialize() const;
+    static std::shared_ptr<NetPack> deserialize(const std::string& data);
 };

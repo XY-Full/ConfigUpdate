@@ -33,5 +33,5 @@ target_link_libraries(server
             common
             busd_core
             logic_modules
-            protobuf
+            proto
 )

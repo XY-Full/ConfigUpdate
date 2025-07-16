@@ -17,8 +17,8 @@ public:
     }
 
     void set_channels(
-        Channel<std::pair<int64_t, std::string>>* in,
-        Channel<std::pair<int64_t, std::string>>* out
+        Channel<std::pair<int64_t, std::shared_ptr<NetPack>>>* in,
+        Channel<std::pair<int64_t, std::shared_ptr<NetPack>>>* out
     ) 
     {
         in_channel_ = in;
@@ -39,7 +39,7 @@ public:
 
     void send_to_client(int64_t conn_id, const NetPack& pack) 
     {
-        out_channel_->push({conn_id, pack.serialize()});
+        out_channel_->push({conn_id, std::make_shared<NetPack>(pack)});
     }
 
 private:
@@ -47,7 +47,7 @@ private:
     {
         while (running_) 
         {
-            std::pair<int64_t, std::string> item;
+            std::pair<int64_t, std::shared_ptr<NetPack>> item;
             if (!in_channel_) 
             {
                 std::cerr << "in_channel is nullptr!!" << std::endl;
@@ -55,31 +55,31 @@ private:
             }
             if (in_channel_->try_pop(item)) 
             {
-                int64_t conn_id = item.first;
-                const std::string& raw = item.second;
+                auto conn_id = item.first;
+                auto pack = item.second;
+                auto body = pack->msg;
 
-                std::cout << "busd recv raw : " << raw << std::endl;
+                std::cout << "busd recv body : " << body << std::endl;
 
                 try 
                 {
-                    NetPack pack = NetPack::deserialize(raw);
-		            std::cout << "msg_id : " << pack.msg_id << std::endl;
-                    auto it = handlers_.find(pack.msg_id);
+		            std::cout << "msg_id : " << pack->msg_id << std::endl;
+                    auto it = handlers_.find(pack->msg_id);
                     if (it != handlers_.end()) 
                     {
                         std::cout << "trigger handlers!" << std::endl;
-                        it->second(conn_id, pack);
+                        it->second(conn_id, *pack);
                     } 
 		            else 
                     {
-			        std::cout << "msg_id :" << pack.msg_id << " never be registed!" << std::endl;
+			        std::cout << "msg_id :" << pack->msg_id << " never be registed!" << std::endl;
                         // 未注册 msg_id 的处理器
                         // 可记录日志或忽略
                     }
                 } 
                 catch (const std::exception& e) 
                 {
-		    std::cout << "deserialize error to NetPack!" << std::endl;
+		            std::cout << "deserialize error to NetPack!" << std::endl;
                     // 反序列化错误处理（可选日志）
                 }
             } 
@@ -91,8 +91,8 @@ private:
     }
 
     std::unordered_map<int32_t, Handler> handlers_;
-    Channel<std::pair<int64_t, std::string>>* in_channel_ = nullptr;
-    Channel<std::pair<int64_t, std::string>>* out_channel_ = nullptr;
+    Channel<std::pair<int64_t, std::shared_ptr<NetPack>>>* in_channel_ = nullptr;
+    Channel<std::pair<int64_t, std::shared_ptr<NetPack>>>* out_channel_ = nullptr;
     std::thread worker_;
     std::atomic<bool> running_ = false;
 };

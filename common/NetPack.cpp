@@ -1,44 +1,33 @@
 #include "NetPack.h"
 #include <cstring>
-#include <stdexcept>
 #include <google/protobuf/message.h>
 
-NetPack NetPack::deserialize(const std::string& data) 
+std::shared_ptr<NetPack> NetPack::deserialize(const std::string& data) 
 {
-    if (data.size() < 12) 
-    {
-        throw std::runtime_error("NetPack::deserialize: data too short");
-    }
+    auto pack = std::make_shared<NetPack>();
+    if (data.size() < sizeof(int32_t) * 3) return pack;
 
-    NetPack pack;
-    std::memcpy(&pack.len, data.data(), 4);
-    std::memcpy(&pack.seq, data.data() + 4, 4);
-    std::memcpy(&pack.msg_id, data.data() + 8, 4);
+    const char* ptr = data.data();
+    memcpy(&pack->len, ptr, sizeof(int32_t)); ptr += sizeof(int32_t);
+    memcpy(&pack->seq, ptr, sizeof(int32_t)); ptr += sizeof(int32_t);
+    memcpy(&pack->msg_id, ptr, sizeof(int32_t)); ptr += sizeof(int32_t);
 
-    size_t expected_size = 4 + pack.len;
-    if (data.size() < expected_size) 
-    {
-        throw std::runtime_error("NetPack::deserialize: incomplete data");
-    }
-
-    pack.msg = data.substr(12, pack.len - 8);  // len includes only seq + msg_id + msg
+    pack->msg.assign(ptr, data.size() - sizeof(int32_t) * 3);
     return pack;
 }
 
-std::string NetPack::serialize() const 
+std::shared_ptr<std::string> NetPack::serialize() const 
 {
-    std::string buffer;
-    
-    // 计算有效负载长度（不包括 len 自身）
-    int32_t payload_len = sizeof(seq) + sizeof(msg_id) + msg.size();
-    
-    buffer.resize(sizeof(len) + payload_len);  // 4 + 4 + 4 + msg.size()
+    auto out = std::make_shared<std::string>();
 
-    char* p = &buffer[0];
-    std::memcpy(p, &payload_len, sizeof(len));
-    std::memcpy(p + 4, &seq, sizeof(seq));
-    std::memcpy(p + 8, &msg_id, sizeof(msg_id));
-    std::memcpy(p + 12, msg.data(), msg.size());
+    int32_t total_len = sizeof(len) + sizeof(seq) + sizeof(msg_id) + msg.size();
+    out->resize(total_len);
+    char* ptr = out->data();
 
-    return buffer;
+    memcpy(ptr, &total_len, sizeof(len)); ptr += sizeof(len);
+    memcpy(ptr, &seq, sizeof(seq));       ptr += sizeof(seq);
+    memcpy(ptr, &msg_id, sizeof(msg_id)); ptr += sizeof(msg_id);
+    memcpy(ptr, msg.data(), msg.size());
+
+    return out;
 }

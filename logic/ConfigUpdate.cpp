@@ -2,6 +2,7 @@
 #include "ILogic.h"
 #include "base.pb.h"
 #include "msg_id.pb.h"
+#include <memory>
 
 class ConfigModule : public ILogic {
 public:
@@ -21,7 +22,10 @@ public:
 private:
     void onConfigRequest(int64_t uid, const NetPack& msg) 
     {
+        auto request = std::make_shared<ConfigUpdate>();
+        request->ParseFromString(msg.msg);
         std::cout << "config_update!!!" << std::endl;
         std::cout << "logic recv : " << msg.msg_id << std::endl;
+        std::cout << "msg body : " << request->update_file(0) << std::endl;
     }
 };

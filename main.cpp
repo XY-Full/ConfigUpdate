@@ -1,3 +1,4 @@
+#include "NetPack.h"
 #include "network/TcpServer.h"
 #include "Busd.h"
 #include "ModuleManager.h"
@@ -6,8 +7,8 @@
 #include "Channel.h"
 
 // 全局通道
-Channel<std::pair<int64_t, std::string>> server_to_busd;
-Channel<std::pair<int64_t, std::string>> busd_to_server;
+Channel<std::pair<int64_t, std::shared_ptr<NetPack>>> server_to_busd;
+Channel<std::pair<int64_t, std::shared_ptr<NetPack>>> busd_to_server;
 
 int main() 
 {
@@ -23,7 +24,7 @@ int main()
     ConfigModule configMod;
     manager.registerModule(&configMod);
 
-    TcpServer server(8888, &server_to_busd, &busd_to_server);
+    TcpServer server(8887, &server_to_busd, &busd_to_server);
 
     server.start();
 
