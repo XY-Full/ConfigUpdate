@@ -5,9 +5,9 @@
 #include <iostream>
 
 TcpServer::TcpServer(int port,
-                     Channel<std::pair<int64_t, std::string>>* in,
-                     Channel<std::pair<int64_t, std::string>>* out)
-    : in_(in), out_(out) 
+                     Channel<std::pair<int64_t, std::string>>* out,
+                     Channel<std::pair<int64_t, std::string>>* in)
+    : server_to_busd(out), busd_to_server(in) 
 {
     server_fd_ = socket(AF_INET, SOCK_STREAM, 0);
     int opt = 1;
@@ -62,23 +62,57 @@ void TcpServer::acceptLoop()
             {
                 int64_t conn_id = fd_to_conn_[fd];
                 std::string len_buf;
-                if (!conn_map_[conn_id]->recvAll(len_buf, 4)) continue;
+                if (!conn_map_[conn_id]->recvAll(len_buf, 4)) 
+                {
+                    std::cout << "Failed to receive length from conn " << conn_id << ", closing connection\n";
+                    cleanupConnection(fd);
+                    continue;
+                }
+
+                // 防止非数字导致长度超大
                 int32_t len = *reinterpret_cast<const int32_t*>(len_buf.data());
+                if (len <= 0 || len > 10 * 1024 * 1024) 
+                {
+                    std::cout << "Invalid message length: " << len << ", closing connection " << conn_id << std::endl;
+                    cleanupConnection(fd);
+                    continue;
+                }
 
                 std::string full_data;
-                if (!conn_map_[conn_id]->recvAll(full_data, len)) continue;
+                if (!conn_map_[conn_id]->recvAll(full_data, len)) 
+                {
+                    std::cout << "Failed to receive full message from conn " << conn_id << ", closing connection\n";
+                    cleanupConnection(fd);
+                    continue;
+                }
 
-                in_->push({conn_id, full_data});
+                std::cout << "recv from [" << conn_id << "] : " << full_data << std::endl;
+                server_to_busd->push({conn_id, full_data});
             }
         }
     }
 }
 
+void TcpServer::cleanupConnection(int fd) 
+{
+    auto it = fd_to_conn_.find(fd);
+    if (it != fd_to_conn_.end()) 
+    {
+        int64_t conn_id = it->second;
+        conn_map_.erase(conn_id);
+        fd_to_conn_.erase(fd);
+        epoller_.remove(fd);
+        ::close(fd);
+        std::cout << "Closed connection: " << conn_id << std::endl;
+    }
+}
+
+
 void TcpServer::outConsumerLoop() 
 {
     while (running_) 
     {
-        auto [conn_id, data] = out_->pop();
+        auto [conn_id, data] = busd_to_server->pop();
         auto it = conn_map_.find(conn_id);
         if (it != conn_map_.end()) 
         {

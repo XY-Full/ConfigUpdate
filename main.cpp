@@ -14,6 +14,9 @@ int main()
     signal(SIGPIPE, SIG_IGN);
 
     Busd bus;
+    bus.set_channels(&server_to_busd, &busd_to_server);
+    bus.start();
+
     ModuleManager manager(bus);
 
     // 动态注册所有模块
@@ -21,5 +24,13 @@ int main()
     manager.registerModule(&configMod);
 
     TcpServer server(8888, &server_to_busd, &busd_to_server);
+
+    server.start();
+
+    while (true)
+    {
+        std::this_thread::sleep_for(std::chrono::seconds(1));
+    }
+ 
     return 0;
 }

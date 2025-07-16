@@ -21,6 +21,7 @@ public:
 private:
     void acceptLoop();
     void outConsumerLoop();
+    void cleanupConnection(int fd);
 
     int server_fd_;
     EpollWrapper epoller_;
@@ -32,6 +33,6 @@ private:
     std::thread out_thread_;
     std::atomic<bool> running_{false};
 
-    Channel<std::pair<int64_t, std::string>>* in_;
-    Channel<std::pair<int64_t, std::string>>* out_;
+    Channel<std::pair<int64_t, std::string>>* server_to_busd;
+    Channel<std::pair<int64_t, std::string>>* busd_to_server;
 };

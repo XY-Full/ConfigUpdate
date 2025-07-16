@@ -1,6 +1,7 @@
 #include "SocketWrapper.h"
 #include <sys/socket.h>
 #include <cstring>
+#include <iostream>
 
 SocketWrapper::SocketWrapper(int fd) : sock_fd_(fd) {}
 
@@ -34,17 +35,34 @@ bool SocketWrapper::sendAll(const std::string& data)
     return true;
 }
 
-bool SocketWrapper::recvAll(std::string& out, int32_t expected_len) 
+bool SocketWrapper::recvAll(std::string& out, size_t size) 
 {
     out.clear();
-    while ((int32_t)out.size() < expected_len) 
+    while (out.size() < size) 
     {
-        char buffer[4096];
-        int remain = expected_len - out.size();
-        int to_read = std::min(remain, (int)sizeof(buffer));
-        ssize_t n = ::recv(sock_fd_, buffer, to_read, 0);
-        if (n <= 0) return false;
-        out.append(buffer, n);
+        char buf[1024];
+        size_t to_read = std::min(sizeof(buf), size - out.size());
+        ssize_t n = recv(sock_fd_, buf, to_read, 0);
+        if (n < 0) 
+        {
+            if (errno == EAGAIN || errno == EWOULDBLOCK) 
+            {
+                // 非阻塞读取未就绪，直接返回失败
+                return false;
+            } 
+            else 
+            {
+                perror("recv error");
+                return false;
+            }
+        } 
+        else if (n == 0) 
+        {
+            // 客户端断开连接
+            std::cout << "Client disconnected\n";
+            return false;
+        }
+        out.append(buf, n);
     }
     return true;
 }

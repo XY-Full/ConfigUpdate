@@ -4,6 +4,7 @@
 #include <unordered_map>
 #include <functional>
 #include <thread>
+#include "iostream"
 
 class Busd 
 {
@@ -47,26 +48,38 @@ private:
         while (running_) 
         {
             std::pair<int64_t, std::string> item;
+            if (!in_channel_) 
+            {
+                std::cerr << "in_channel is nullptr!!" << std::endl;
+                return;
+            }
             if (in_channel_->try_pop(item)) 
             {
                 int64_t conn_id = item.first;
                 const std::string& raw = item.second;
 
+                std::cout << "busd recv raw : " << raw << std::endl;
+
                 try 
                 {
                     NetPack pack = NetPack::deserialize(raw);
+		            std::cout << "msg_id : " << pack.msg_id << std::endl;
                     auto it = handlers_.find(pack.msg_id);
                     if (it != handlers_.end()) 
                     {
+                        std::cout << "trigger handlers!" << std::endl;
                         it->second(conn_id, pack);
-                    } else 
+                    } 
+		            else 
                     {
+			        std::cout << "msg_id :" << pack.msg_id << " never be registed!" << std::endl;
                         // 未注册 msg_id 的处理器
                         // 可记录日志或忽略
                     }
                 } 
                 catch (const std::exception& e) 
                 {
+		    std::cout << "deserialize error to NetPack!" << std::endl;
                     // 反序列化错误处理（可选日志）
                 }
             } 
