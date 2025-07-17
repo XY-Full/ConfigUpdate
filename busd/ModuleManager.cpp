@@ -1,8 +1,7 @@
 #include "ModuleManager.h"
-#include "ILogic.h"
+#include "HeartHandler.h"
 
-void ModuleManager::registerModule(ILogic* module) 
+void ModuleManager::registerAllModule() 
 {
-    module->registerHandlers(bus_);
-    modules_.push_back(module);
+    
 }

@@ -4,27 +4,27 @@
 #include "ModuleManager.h"
 #include "ConfigUpdate.cpp"  // 或者 .h + .cpp 分离
 #include <csignal>
+#include <memory>
 #include "Channel.h"
+#include "Timer.h"
 
 // 全局通道
 Channel<std::pair<int64_t, std::shared_ptr<NetPack>>> server_to_busd;
 Channel<std::pair<int64_t, std::shared_ptr<NetPack>>> busd_to_server;
+Timer loop;
 
 int main() 
 {
     signal(SIGPIPE, SIG_IGN);
 
-    Busd bus;
-    bus.set_channels(&server_to_busd, &busd_to_server);
+    Busd bus(&loop, &server_to_busd, &busd_to_server);
     bus.start();
 
-    ModuleManager manager(bus);
+    ModuleManager manager(bus, &loop);
 
-    // 动态注册所有模块
-    ConfigModule configMod;
-    manager.registerModule(&configMod);
+    manager.registerAllModule();
 
-    TcpServer server(8887, &server_to_busd, &busd_to_server);
+    TcpServer server(8887, &server_to_busd, &busd_to_server, &loop);
 
     server.start();
 

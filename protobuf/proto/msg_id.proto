@@ -3,5 +3,6 @@ package MSGID;
 
 enum MsgID
 {
-    CS_CONFIG_UPDATE    = 0; // 配置更新
+    CS_HEART_BEAT       = 0; // 心跳
+    CS_CONFIG_UPDATE    = 1; // 配置更新
 }

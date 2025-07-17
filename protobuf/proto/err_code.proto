@@ -1,0 +1,8 @@
+syntax = "proto3";
+package ErrorCode;
+
+enum ErrorCode
+{
+    Error_unknown = 0;
+    Error_success = 1;
+}

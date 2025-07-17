@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+message Heart
+{
+    message Request
+    {        
+    }
+
+    message Response
+    {
+        int32 err       = 1;
+        int64 timestamp = 2;
+    }
+
+    Request     request     = 1;
+    Response    response    = 2;
+}

@@ -3,11 +3,13 @@
 #include <sys/socket.h>
 #include <cstring>
 #include <iostream>
+#include "Log.h"
 
 TcpServer::TcpServer(int port,
                      Channel<std::pair<int64_t, std::shared_ptr<NetPack>>>* out,
-                     Channel<std::pair<int64_t, std::shared_ptr<NetPack>>>* in)
-    : server_to_busd(out), busd_to_server(in) 
+                     Channel<std::pair<int64_t, std::shared_ptr<NetPack>>>* in,
+                     Timer* loop)
+    : server_to_busd(out), busd_to_server(in), loop_(loop)
 {
     server_fd_ = socket(AF_INET, SOCK_STREAM, 0);
     int opt = 1;
@@ -18,7 +20,14 @@ TcpServer::TcpServer(int port,
     addr.sin_addr.s_addr = INADDR_ANY;
     addr.sin_port = htons(port);
 
-    bind(server_fd_, (sockaddr*)&addr, sizeof(addr));
+    if(bind(server_fd_, (sockaddr*)&addr, sizeof(addr)) != 0)
+    {
+        ELOG << "Failed to bind to port " << port;
+        exit(1);
+    }
+
+    ILOG << "Server started on port " << port;
+
     listen(server_fd_, 128);
     epoller_.add(server_fd_);
 }
@@ -34,6 +43,7 @@ void TcpServer::start()
     running_ = true;
     accept_thread_ = std::thread(&TcpServer::acceptLoop, this);
     out_thread_ = std::thread(&TcpServer::outConsumerLoop, this);
+    loop_->scheduleEvery(1.0, [this]() { this->checkHeartbeats(); });
 }
 
 void TcpServer::stop() 
@@ -87,9 +97,38 @@ void TcpServer::acceptLoop()
                 }
 
                 std::cout << "recv from [" << conn_id << "] : " << full_data << std::endl;
-                server_to_busd->push({conn_id, NetPack::deserialize(full_data)});
+                server_to_busd->push({conn_id, NetPack::deserialize(conn_id, full_data)});
+                last_active_time_[conn_id] = std::chrono::steady_clock::now();
             }
         }
+    }
+}
+
+void TcpServer::checkHeartbeats()
+{
+    std::lock_guard<std::mutex> lock(conn_mutex_);
+    auto now = std::chrono::steady_clock::now();
+    std::vector<int> fds_to_close;
+
+    for (const auto& [conn_id, last_time] : last_active_time_) 
+    {
+        if (std::chrono::duration_cast<std::chrono::seconds>(now - last_time).count() > HEARTBEAT_TIMEOUT_SECONDS) 
+        {
+            std::cout << "Heartbeat timeout for conn " << conn_id << ", kicking..." << std::endl;
+            for (const auto& [fd, id] : fd_to_conn_) 
+            {
+                if (id == conn_id) 
+                {
+                    fds_to_close.push_back(fd);
+                    break;
+                }
+            }
+        }
+    }
+
+    for (int fd : fds_to_close) 
+    {
+        cleanupConnection(fd);
     }
 }
 
@@ -101,6 +140,7 @@ void TcpServer::cleanupConnection(int fd)
         int64_t conn_id = it->second;
         conn_map_.erase(conn_id);
         fd_to_conn_.erase(fd);
+        last_active_time_.erase(it->second);
         epoller_.remove(fd);
         ::close(fd);
         std::cout << "Closed connection: " << conn_id << std::endl;

@@ -1,31 +1,21 @@
 
-#include "ILogic.h"
-#include "base.pb.h"
+#include "ConfigUpdate.h"
+#include "config_update.pb.h"
 #include "msg_id.pb.h"
-#include <memory>
 
-class ConfigModule : public ILogic {
-public:
-    void registerHandlers(Busd& bus) override 
-    {
-        bus.register_handler( 
-            MSGID::CS_CONFIG_UPDATE,
-            std::bind(&ConfigModule::onConfigRequest, this, std::placeholders::_1, std::placeholders::_2)
-        );
+void ConfigModule::registerHandlers() 
+{
+    busd_->registerHandler( 
+        MSGID::CS_CONFIG_UPDATE,
+        std::bind(&ConfigModule::onConfigRequest, this, std::placeholders::_1)
+    );
+}
 
-        bus.register_handler( 
-            1,
-            std::bind(&ConfigModule::onConfigRequest, this, std::placeholders::_1, std::placeholders::_2)
-        );
-    }
+void ConfigModule::onConfigRequest(const NetPack& pPack) 
+{
+    PROCESS_NETPACK_BEGIN(cs::ConfigUpdate);
 
-private:
-    void onConfigRequest(int64_t uid, const NetPack& msg) 
-    {
-        auto request = std::make_shared<ConfigUpdate>();
-        request->ParseFromString(msg.msg);
-        std::cout << "config_update!!!" << std::endl;
-        std::cout << "logic recv : " << msg.msg_id << std::endl;
-        std::cout << "msg body : " << request->update_file(0) << std::endl;
-    }
-};
+    response->set_err(ErrorCode::Error_success);
+
+    PROCESS_NETPACK_END();
+}

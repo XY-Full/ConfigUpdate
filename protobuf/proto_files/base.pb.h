@@ -23,6 +23,7 @@
 #include <google/protobuf/io/coded_stream.h>
 #include <google/protobuf/arena.h>
 #include <google/protobuf/arenastring.h>
+#include <google/protobuf/generated_message_bases.h>
 #include <google/protobuf/generated_message_table_driven.h>
 #include <google/protobuf/generated_message_util.h>
 #include <google/protobuf/metadata_lite.h>
@@ -53,33 +54,35 @@ struct TableStruct_base_2eproto {
   static const uint32_t offsets[];
 };
 extern const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_base_2eproto;
-class ConfigUpdate;
-struct ConfigUpdateDefaultTypeInternal;
-extern ConfigUpdateDefaultTypeInternal _ConfigUpdate_default_instance_;
+namespace cs {
+class test;
+struct testDefaultTypeInternal;
+extern testDefaultTypeInternal _test_default_instance_;
+}  // namespace cs
 PROTOBUF_NAMESPACE_OPEN
-template<> ::ConfigUpdate* Arena::CreateMaybeMessage<::ConfigUpdate>(Arena*);
+template<> ::cs::test* Arena::CreateMaybeMessage<::cs::test>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
+namespace cs {
 
 // ===================================================================
 
-class ConfigUpdate final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:ConfigUpdate) */ {
+class test final :
+    public ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase /* @@protoc_insertion_point(class_definition:cs.test) */ {
  public:
-  inline ConfigUpdate() : ConfigUpdate(nullptr) {}
-  ~ConfigUpdate() override;
-  explicit constexpr ConfigUpdate(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline test() : test(nullptr) {}
+  explicit constexpr test(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  ConfigUpdate(const ConfigUpdate& from);
-  ConfigUpdate(ConfigUpdate&& from) noexcept
-    : ConfigUpdate() {
+  test(const test& from);
+  test(test&& from) noexcept
+    : test() {
     *this = ::std::move(from);
   }
 
-  inline ConfigUpdate& operator=(const ConfigUpdate& from) {
+  inline test& operator=(const test& from) {
     CopyFrom(from);
     return *this;
   }
-  inline ConfigUpdate& operator=(ConfigUpdate&& from) noexcept {
+  inline test& operator=(test&& from) noexcept {
     if (this == &from) return *this;
     if (GetOwningArena() == from.GetOwningArena()
   #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
@@ -102,20 +105,20 @@ class ConfigUpdate final :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const ConfigUpdate& default_instance() {
+  static const test& default_instance() {
     return *internal_default_instance();
   }
-  static inline const ConfigUpdate* internal_default_instance() {
-    return reinterpret_cast<const ConfigUpdate*>(
-               &_ConfigUpdate_default_instance_);
+  static inline const test* internal_default_instance() {
+    return reinterpret_cast<const test*>(
+               &_test_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     0;
 
-  friend void swap(ConfigUpdate& a, ConfigUpdate& b) {
+  friend void swap(test& a, test& b) {
     a.Swap(&b);
   }
-  inline void Swap(ConfigUpdate* other) {
+  inline void Swap(test* other) {
     if (other == this) return;
   #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
@@ -128,7 +131,7 @@ class ConfigUpdate final :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(ConfigUpdate* other) {
+  void UnsafeArenaSwap(test* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
@@ -136,42 +139,28 @@ class ConfigUpdate final :
 
   // implements Message ----------------------------------------------
 
-  ConfigUpdate* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<ConfigUpdate>(arena);
+  test* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<test>(arena);
   }
-  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const ConfigUpdate& from);
-  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom(const ConfigUpdate& from);
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
+  using ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyFrom;
+  inline void CopyFrom(const test& from) {
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyImpl(this, from);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeFrom;
+  void MergeFrom(const test& from) {
+    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeImpl(this, from);
+  }
   public:
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(ConfigUpdate* other);
 
   private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "ConfigUpdate";
+    return "cs.test";
   }
   protected:
-  explicit ConfigUpdate(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+  explicit test(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                        bool is_message_owned = false);
   private:
-  static void ArenaDtor(void* object);
-  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
   public:
 
   static const ClassData _class_data_;
@@ -183,41 +172,13 @@ class ConfigUpdate final :
 
   // accessors -------------------------------------------------------
 
-  enum : int {
-    kUpdateFileFieldNumber = 1,
-  };
-  // repeated string update_file = 1;
-  int update_file_size() const;
-  private:
-  int _internal_update_file_size() const;
-  public:
-  void clear_update_file();
-  const std::string& update_file(int index) const;
-  std::string* mutable_update_file(int index);
-  void set_update_file(int index, const std::string& value);
-  void set_update_file(int index, std::string&& value);
-  void set_update_file(int index, const char* value);
-  void set_update_file(int index, const char* value, size_t size);
-  std::string* add_update_file();
-  void add_update_file(const std::string& value);
-  void add_update_file(std::string&& value);
-  void add_update_file(const char* value);
-  void add_update_file(const char* value, size_t size);
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& update_file() const;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_update_file();
-  private:
-  const std::string& _internal_update_file(int index) const;
-  std::string* _internal_add_update_file();
-  public:
-
-  // @@protoc_insertion_point(class_scope:ConfigUpdate)
+  // @@protoc_insertion_point(class_scope:cs.test)
  private:
   class _Internal;
 
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> update_file_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_base_2eproto;
 };
@@ -230,82 +191,7 @@ class ConfigUpdate final :
   #pragma GCC diagnostic push
   #pragma GCC diagnostic ignored "-Wstrict-aliasing"
 #endif  // __GNUC__
-// ConfigUpdate
-
-// repeated string update_file = 1;
-inline int ConfigUpdate::_internal_update_file_size() const {
-  return update_file_.size();
-}
-inline int ConfigUpdate::update_file_size() const {
-  return _internal_update_file_size();
-}
-inline void ConfigUpdate::clear_update_file() {
-  update_file_.Clear();
-}
-inline std::string* ConfigUpdate::add_update_file() {
-  std::string* _s = _internal_add_update_file();
-  // @@protoc_insertion_point(field_add_mutable:ConfigUpdate.update_file)
-  return _s;
-}
-inline const std::string& ConfigUpdate::_internal_update_file(int index) const {
-  return update_file_.Get(index);
-}
-inline const std::string& ConfigUpdate::update_file(int index) const {
-  // @@protoc_insertion_point(field_get:ConfigUpdate.update_file)
-  return _internal_update_file(index);
-}
-inline std::string* ConfigUpdate::mutable_update_file(int index) {
-  // @@protoc_insertion_point(field_mutable:ConfigUpdate.update_file)
-  return update_file_.Mutable(index);
-}
-inline void ConfigUpdate::set_update_file(int index, const std::string& value) {
-  update_file_.Mutable(index)->assign(value);
-  // @@protoc_insertion_point(field_set:ConfigUpdate.update_file)
-}
-inline void ConfigUpdate::set_update_file(int index, std::string&& value) {
-  update_file_.Mutable(index)->assign(std::move(value));
-  // @@protoc_insertion_point(field_set:ConfigUpdate.update_file)
-}
-inline void ConfigUpdate::set_update_file(int index, const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  update_file_.Mutable(index)->assign(value);
-  // @@protoc_insertion_point(field_set_char:ConfigUpdate.update_file)
-}
-inline void ConfigUpdate::set_update_file(int index, const char* value, size_t size) {
-  update_file_.Mutable(index)->assign(
-    reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_set_pointer:ConfigUpdate.update_file)
-}
-inline std::string* ConfigUpdate::_internal_add_update_file() {
-  return update_file_.Add();
-}
-inline void ConfigUpdate::add_update_file(const std::string& value) {
-  update_file_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add:ConfigUpdate.update_file)
-}
-inline void ConfigUpdate::add_update_file(std::string&& value) {
-  update_file_.Add(std::move(value));
-  // @@protoc_insertion_point(field_add:ConfigUpdate.update_file)
-}
-inline void ConfigUpdate::add_update_file(const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  update_file_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add_char:ConfigUpdate.update_file)
-}
-inline void ConfigUpdate::add_update_file(const char* value, size_t size) {
-  update_file_.Add()->assign(reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_add_pointer:ConfigUpdate.update_file)
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>&
-ConfigUpdate::update_file() const {
-  // @@protoc_insertion_point(field_list:ConfigUpdate.update_file)
-  return update_file_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>*
-ConfigUpdate::mutable_update_file() {
-  // @@protoc_insertion_point(field_mutable_list:ConfigUpdate.update_file)
-  return &update_file_;
-}
+// test
 
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
@@ -313,6 +199,7 @@ ConfigUpdate::mutable_update_file() {
 
 // @@protoc_insertion_point(namespace_scope)
 
+}  // namespace cs
 
 // @@protoc_insertion_point(global_scope)
 

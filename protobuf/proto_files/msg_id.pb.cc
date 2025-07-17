@@ -25,12 +25,12 @@ static constexpr ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema* schemas = n
 static constexpr ::PROTOBUF_NAMESPACE_ID::Message* const* file_default_instances = nullptr;
 
 const char descriptor_table_protodef_msg_5fid_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
-  "\n\014msg_id.proto\022\005MSGID*\035\n\005MsgID\022\024\n\020CS_CON"
-  "FIG_UPDATE\020\000b\006proto3"
+  "\n\014msg_id.proto\022\005MSGID*0\n\005MsgID\022\021\n\rCS_HEA"
+  "RT_BEAT\020\000\022\024\n\020CS_CONFIG_UPDATE\020\001b\006proto3"
   ;
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_msg_5fid_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_msg_5fid_2eproto = {
-  false, false, 60, descriptor_table_protodef_msg_5fid_2eproto, "msg_id.proto", 
+  false, false, 79, descriptor_table_protodef_msg_5fid_2eproto, "msg_id.proto", 
   &descriptor_table_msg_5fid_2eproto_once, nullptr, 0, 0,
   schemas, file_default_instances, TableStruct_msg_5fid_2eproto::offsets,
   nullptr, file_level_enum_descriptors_msg_5fid_2eproto, file_level_service_descriptors_msg_5fid_2eproto,
@@ -49,6 +49,7 @@ const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* MsgID_descriptor() {
 bool MsgID_IsValid(int value) {
   switch (value) {
     case 0:
+    case 1:
       return true;
     default:
       return false;
