@@ -5,7 +5,9 @@
 #include <arpa/inet.h>
 #include <chrono>
 #include <thread>
-#include "base.pb.h"
+#include "NetPack.h"
+#include "config_update.pb.h"
+#include "msg_id.pb.h"
 
 int main() {
     int sock = socket(AF_INET, SOCK_STREAM, 0);
@@ -25,30 +27,19 @@ int main() {
         return 1;
     }
 
-    int32_t seq = 1;
-    int32_t msg_id = 1;
-    ConfigUpdate config_update;
-    config_update.add_update_file("321");
-    std::string pb_data;
-    config_update.SerializeToString(&pb_data);
+    cs::ConfigUpdate config_update;
+    config_update.mutable_request()->add_update_file("321");
 
-    // 构造整个消息体（长度 = seq + msg_id + pb_data）
-    int32_t len = sizeof(seq) + sizeof(msg_id) + pb_data.size();
+    NetPack pack(&config_update);
+    pack.seq = 1;
+    pack.flag = C2S_FLAG;
+    pack.msg_id = MSGID::CS_CONFIG_UPDATE;
+    pack.uid = 0; // 第一次不用设置，后续服务端响应后再设置
 
-    std::string buffer;
-    buffer.resize(4 + len); // 总大小 = length字段(4) + 实际数据长度
-
-    // 填写 length 字段（前4字节）
-    std::memcpy(&buffer[0], &len, 4);
-    // 填写 seq（第5~8字节）
-    std::memcpy(&buffer[4], &seq, 4);
-    // 填写 msg_id（第9~12字节）
-    std::memcpy(&buffer[8], &msg_id, 4);
-    // 填写 pb_data（第13字节开始）
-    std::memcpy(&buffer[12], pb_data.data(), pb_data.size());
+    auto buffer = pack.serialize();
 
     // 发送数据包
-    ssize_t sent = send(sock, buffer.data(), buffer.size(), 0);
+    ssize_t sent = send(sock, buffer->data(), buffer->size(), 0);
     if (sent < 0) {
         perror("send error");
     } else {
@@ -62,6 +53,13 @@ int main() {
         recv_buf[recvd] = '\0';
         std::cout << "Received: " << recv_buf << std::endl;
     }
+
+    NetPack pack_resp;
+    // 第一个参数暂时无用
+    pack_resp.deserialize(0, std::string(recv_buf));
+    cs::ConfigUpdate response;
+    response.ParseFromString(pack_resp.msg);
+    std::cout << "Response: " << response.DebugString() << std::endl;
 
     close(sock);
     return 0;

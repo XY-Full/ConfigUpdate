@@ -13,11 +13,10 @@ include_directories(${PROTOBUF_INCLUDE_DIR})
 include_directories(
     ${CMAKE_SOURCE_DIR}/../protobuf/include
     ${CMAKE_SOURCE_DIR}/../protobuf/proto_files
-    ${CMAKE_SOURCE_DIR}/../common
 )
 
 # 可执行文件
-add_executable(client main.cpp base.pb.cc)
+add_executable(client main.cpp config_update.pb.cc NetPack.cpp base.pb.cc base.pb.cc)
 target_link_libraries(client
     PRIVATE protobuf pthread
 )
