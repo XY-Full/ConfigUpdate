@@ -4,7 +4,7 @@
 #include "msg_id.pb.h"
 
 #define PROCESS_NETPACK_BEGIN(MSG_TYPE) \
-    int64_t user_id = pPack.conn_id;\
+    int64_t uid = pPack.uid;\
     auto recvMsg = std::make_shared<MSG_TYPE>();\
     recvMsg->ParseFromString(pPack.msg);\
     auto request = recvMsg->mutable_request();\
