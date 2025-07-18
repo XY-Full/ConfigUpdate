@@ -18,7 +18,8 @@
 PROTOBUF_PRAGMA_INIT_SEG
 namespace cs {
 constexpr ConfigUpdate_Request::ConfigUpdate_Request(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized){}
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : update_file_(){}
 struct ConfigUpdate_RequestDefaultTypeInternal {
   constexpr ConfigUpdate_RequestDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -65,6 +66,7 @@ const uint32_t TableStruct_config_5fupdate_2eproto::offsets[] PROTOBUF_SECTION_V
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::cs::ConfigUpdate_Request, update_file_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::cs::ConfigUpdate_Response, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -83,8 +85,8 @@ const uint32_t TableStruct_config_5fupdate_2eproto::offsets[] PROTOBUF_SECTION_V
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::cs::ConfigUpdate_Request)},
-  { 6, -1, -1, sizeof(::cs::ConfigUpdate_Response)},
-  { 13, -1, -1, sizeof(::cs::ConfigUpdate)},
+  { 7, -1, -1, sizeof(::cs::ConfigUpdate_Response)},
+  { 14, -1, -1, sizeof(::cs::ConfigUpdate)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -94,18 +96,19 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
 };
 
 const char descriptor_table_protodef_config_5fupdate_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
-  "\n\023config_update.proto\022\002cs\032\nbase.proto\"\212\001"
+  "\n\023config_update.proto\022\002cs\032\nbase.proto\"\237\001"
   "\n\014ConfigUpdate\022)\n\007request\030\001 \001(\0132\030.cs.Con"
   "figUpdate.Request\022+\n\010response\030\002 \001(\0132\031.cs"
-  ".ConfigUpdate.Response\032\t\n\007Request\032\027\n\010Res"
-  "ponse\022\013\n\003err\030\001 \001(\005b\006proto3"
+  ".ConfigUpdate.Response\032\036\n\007Request\022\023\n\013upd"
+  "ate_file\030\001 \003(\t\032\027\n\010Response\022\013\n\003err\030\001 \001(\005b"
+  "\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_config_5fupdate_2eproto_deps[1] = {
   &::descriptor_table_base_2eproto,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_config_5fupdate_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_config_5fupdate_2eproto = {
-  false, false, 186, descriptor_table_protodef_config_5fupdate_2eproto, "config_update.proto", 
+  false, false, 207, descriptor_table_protodef_config_5fupdate_2eproto, "config_update.proto", 
   &descriptor_table_config_5fupdate_2eproto_once, descriptor_table_config_5fupdate_2eproto_deps, 1, 3,
   schemas, file_default_instances, TableStruct_config_5fupdate_2eproto::offsets,
   file_level_metadata_config_5fupdate_2eproto, file_level_enum_descriptors_config_5fupdate_2eproto, file_level_service_descriptors_config_5fupdate_2eproto,
@@ -126,30 +129,181 @@ class ConfigUpdate_Request::_Internal {
 
 ConfigUpdate_Request::ConfigUpdate_Request(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase(arena, is_message_owned) {
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
+  update_file_(arena) {
+  SharedCtor();
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
   // @@protoc_insertion_point(arena_constructor:cs.ConfigUpdate.Request)
 }
 ConfigUpdate_Request::ConfigUpdate_Request(const ConfigUpdate_Request& from)
-  : ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase() {
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      update_file_(from.update_file_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   // @@protoc_insertion_point(copy_constructor:cs.ConfigUpdate.Request)
 }
 
+inline void ConfigUpdate_Request::SharedCtor() {
+}
 
+ConfigUpdate_Request::~ConfigUpdate_Request() {
+  // @@protoc_insertion_point(destructor:cs.ConfigUpdate.Request)
+  if (GetArenaForAllocation() != nullptr) return;
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
 
+inline void ConfigUpdate_Request::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+}
 
+void ConfigUpdate_Request::ArenaDtor(void* object) {
+  ConfigUpdate_Request* _this = reinterpret_cast< ConfigUpdate_Request* >(object);
+  (void)_this;
+}
+void ConfigUpdate_Request::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void ConfigUpdate_Request::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void ConfigUpdate_Request::Clear() {
+// @@protoc_insertion_point(message_clear_start:cs.ConfigUpdate.Request)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  update_file_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* ConfigUpdate_Request::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // repeated string update_file = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            auto str = _internal_add_update_file();
+            ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+            CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "cs.ConfigUpdate.Request.update_file"));
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* ConfigUpdate_Request::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:cs.ConfigUpdate.Request)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated string update_file = 1;
+  for (int i = 0, n = this->_internal_update_file_size(); i < n; i++) {
+    const auto& s = this->_internal_update_file(i);
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      s.data(), static_cast<int>(s.length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "cs.ConfigUpdate.Request.update_file");
+    target = stream->WriteString(1, s, target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:cs.ConfigUpdate.Request)
+  return target;
+}
+
+size_t ConfigUpdate_Request::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:cs.ConfigUpdate.Request)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated string update_file = 1;
+  total_size += 1 *
+      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(update_file_.size());
+  for (int i = 0, n = update_file_.size(); i < n; i++) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+      update_file_.Get(i));
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+}
 
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ConfigUpdate_Request::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyImpl,
-    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeImpl,
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ConfigUpdate_Request::MergeImpl
 };
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ConfigUpdate_Request::GetClassData() const { return &_class_data_; }
 
+void ConfigUpdate_Request::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<ConfigUpdate_Request *>(to)->MergeFrom(
+      static_cast<const ConfigUpdate_Request &>(from));
+}
 
 
+void ConfigUpdate_Request::MergeFrom(const ConfigUpdate_Request& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:cs.ConfigUpdate.Request)
+  GOOGLE_DCHECK_NE(&from, this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
 
+  update_file_.MergeFrom(from.update_file_);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
 
+void ConfigUpdate_Request::CopyFrom(const ConfigUpdate_Request& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:cs.ConfigUpdate.Request)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
 
+bool ConfigUpdate_Request::IsInitialized() const {
+  return true;
+}
+
+void ConfigUpdate_Request::InternalSwap(ConfigUpdate_Request* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  update_file_.InternalSwap(&other->update_file_);
+}
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ConfigUpdate_Request::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(

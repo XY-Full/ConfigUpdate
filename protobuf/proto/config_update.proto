@@ -6,7 +6,7 @@ message ConfigUpdate
 {
     message Request
     {
-        
+        repeated string update_file = 1;
     }
 
     message Response

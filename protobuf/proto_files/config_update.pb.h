@@ -23,7 +23,6 @@
 #include <google/protobuf/io/coded_stream.h>
 #include <google/protobuf/arena.h>
 #include <google/protobuf/arenastring.h>
-#include <google/protobuf/generated_message_bases.h>
 #include <google/protobuf/generated_message_table_driven.h>
 #include <google/protobuf/generated_message_util.h>
 #include <google/protobuf/metadata_lite.h>
@@ -76,9 +75,10 @@ namespace cs {
 // ===================================================================
 
 class ConfigUpdate_Request final :
-    public ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase /* @@protoc_insertion_point(class_definition:cs.ConfigUpdate.Request) */ {
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:cs.ConfigUpdate.Request) */ {
  public:
   inline ConfigUpdate_Request() : ConfigUpdate_Request(nullptr) {}
+  ~ConfigUpdate_Request() override;
   explicit constexpr ConfigUpdate_Request(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
   ConfigUpdate_Request(const ConfigUpdate_Request& from);
@@ -151,15 +151,27 @@ class ConfigUpdate_Request final :
   ConfigUpdate_Request* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
     return CreateMaybeMessage<ConfigUpdate_Request>(arena);
   }
-  using ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyFrom;
-  inline void CopyFrom(const ConfigUpdate_Request& from) {
-    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyImpl(this, from);
-  }
-  using ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeFrom;
-  void MergeFrom(const ConfigUpdate_Request& from) {
-    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeImpl(this, from);
-  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const ConfigUpdate_Request& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom(const ConfigUpdate_Request& from);
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
   public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(ConfigUpdate_Request* other);
 
   private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
@@ -170,6 +182,8 @@ class ConfigUpdate_Request final :
   explicit ConfigUpdate_Request(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                        bool is_message_owned = false);
   private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
   public:
 
   static const ClassData _class_data_;
@@ -181,6 +195,33 @@ class ConfigUpdate_Request final :
 
   // accessors -------------------------------------------------------
 
+  enum : int {
+    kUpdateFileFieldNumber = 1,
+  };
+  // repeated string update_file = 1;
+  int update_file_size() const;
+  private:
+  int _internal_update_file_size() const;
+  public:
+  void clear_update_file();
+  const std::string& update_file(int index) const;
+  std::string* mutable_update_file(int index);
+  void set_update_file(int index, const std::string& value);
+  void set_update_file(int index, std::string&& value);
+  void set_update_file(int index, const char* value);
+  void set_update_file(int index, const char* value, size_t size);
+  std::string* add_update_file();
+  void add_update_file(const std::string& value);
+  void add_update_file(std::string&& value);
+  void add_update_file(const char* value);
+  void add_update_file(const char* value, size_t size);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& update_file() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_update_file();
+  private:
+  const std::string& _internal_update_file(int index) const;
+  std::string* _internal_add_update_file();
+  public:
+
   // @@protoc_insertion_point(class_scope:cs.ConfigUpdate.Request)
  private:
   class _Internal;
@@ -188,6 +229,7 @@ class ConfigUpdate_Request final :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> update_file_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_config_5fupdate_2eproto;
 };
@@ -525,6 +567,81 @@ class ConfigUpdate final :
   #pragma GCC diagnostic ignored "-Wstrict-aliasing"
 #endif  // __GNUC__
 // ConfigUpdate_Request
+
+// repeated string update_file = 1;
+inline int ConfigUpdate_Request::_internal_update_file_size() const {
+  return update_file_.size();
+}
+inline int ConfigUpdate_Request::update_file_size() const {
+  return _internal_update_file_size();
+}
+inline void ConfigUpdate_Request::clear_update_file() {
+  update_file_.Clear();
+}
+inline std::string* ConfigUpdate_Request::add_update_file() {
+  std::string* _s = _internal_add_update_file();
+  // @@protoc_insertion_point(field_add_mutable:cs.ConfigUpdate.Request.update_file)
+  return _s;
+}
+inline const std::string& ConfigUpdate_Request::_internal_update_file(int index) const {
+  return update_file_.Get(index);
+}
+inline const std::string& ConfigUpdate_Request::update_file(int index) const {
+  // @@protoc_insertion_point(field_get:cs.ConfigUpdate.Request.update_file)
+  return _internal_update_file(index);
+}
+inline std::string* ConfigUpdate_Request::mutable_update_file(int index) {
+  // @@protoc_insertion_point(field_mutable:cs.ConfigUpdate.Request.update_file)
+  return update_file_.Mutable(index);
+}
+inline void ConfigUpdate_Request::set_update_file(int index, const std::string& value) {
+  update_file_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set:cs.ConfigUpdate.Request.update_file)
+}
+inline void ConfigUpdate_Request::set_update_file(int index, std::string&& value) {
+  update_file_.Mutable(index)->assign(std::move(value));
+  // @@protoc_insertion_point(field_set:cs.ConfigUpdate.Request.update_file)
+}
+inline void ConfigUpdate_Request::set_update_file(int index, const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  update_file_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:cs.ConfigUpdate.Request.update_file)
+}
+inline void ConfigUpdate_Request::set_update_file(int index, const char* value, size_t size) {
+  update_file_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:cs.ConfigUpdate.Request.update_file)
+}
+inline std::string* ConfigUpdate_Request::_internal_add_update_file() {
+  return update_file_.Add();
+}
+inline void ConfigUpdate_Request::add_update_file(const std::string& value) {
+  update_file_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add:cs.ConfigUpdate.Request.update_file)
+}
+inline void ConfigUpdate_Request::add_update_file(std::string&& value) {
+  update_file_.Add(std::move(value));
+  // @@protoc_insertion_point(field_add:cs.ConfigUpdate.Request.update_file)
+}
+inline void ConfigUpdate_Request::add_update_file(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  update_file_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:cs.ConfigUpdate.Request.update_file)
+}
+inline void ConfigUpdate_Request::add_update_file(const char* value, size_t size) {
+  update_file_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:cs.ConfigUpdate.Request.update_file)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>&
+ConfigUpdate_Request::update_file() const {
+  // @@protoc_insertion_point(field_list:cs.ConfigUpdate.Request.update_file)
+  return update_file_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>*
+ConfigUpdate_Request::mutable_update_file() {
+  // @@protoc_insertion_point(field_mutable_list:cs.ConfigUpdate.Request.update_file)
+  return &update_file_;
+}
 
 // -------------------------------------------------------------------
 

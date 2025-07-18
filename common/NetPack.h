@@ -35,6 +35,7 @@ struct NetPack
 
     std::string msg;
 
+    NetPack() = default;
     NetPack(const NetPack& request, const google::protobuf::Message* msg, int8_t msg_id = None);
     NetPack(const google::protobuf::Message* msg, int8_t msg_id = None);
 
