@@ -9,14 +9,14 @@ NetPack::NetPack(const google::protobuf::Message* msg, int8_t pakcFlag)
         this->msg = msg->SerializeAsString();
 }
 
-NetPack::NetPack(const NetPack& other, const google::protobuf::Message* msg, int8_t pakcFlag)
+NetPack::NetPack(const NetPack& other, const google::protobuf::Message* msg, int8_t packFlag)
 {
     len = other.len;
     seq = other.seq;
     msg_id = other.msg_id;
     conn_id = other.conn_id;
     uid = other.uid;
-    flag = pakcFlag;
+    flag = packFlag;
     if(msg)
         this->msg = msg->SerializeAsString();
 }
