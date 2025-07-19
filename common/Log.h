@@ -8,12 +8,14 @@
 #include <mutex>
 #include <thread>
 
-class Logger {
+class Logger 
+{
 public:
     enum Level { DEBUG, INFO, WARN, ERROR };
 
     Logger(Level level, const char* file, int line)
-        : level_(level) {
+        : level_(level) 
+    {
         // 时间格式化
         auto now = std::chrono::system_clock::now();
         auto in_time_t = std::chrono::system_clock::to_time_t(now);
@@ -28,7 +30,8 @@ public:
         stream_ << "[" << file << ":" << line << "] ";
     }
 
-    ~Logger() {
+    ~Logger() 
+    {
         stream_ << std::endl;
         std::lock_guard<std::mutex> lock(getMutex());
         std::cout << stream_.str();
@@ -36,19 +39,23 @@ public:
     }
 
     template<typename T>
-    Logger& operator<<(const T& val) {
+    Logger& operator<<(const T& val) 
+    {
         stream_ << val;
         return *this;
     }
 
 private:
-    static std::mutex& getMutex() {
+    static std::mutex& getMutex() 
+    {
         static std::mutex mtx;
         return mtx;
     }
 
-    static const char* levelToString(Level level) {
-        switch (level) {
+    static const char* levelToString(Level level) 
+    {
+        switch (level) 
+        {
             case DEBUG: return "DEBUG"; 
             case INFO:  return "INFO"; 
             case WARN:  return "WARN"; 
