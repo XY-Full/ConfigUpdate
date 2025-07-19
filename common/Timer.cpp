@@ -11,12 +11,12 @@ Timer::~Timer()
     shutdown();
 }
 
-Timer::TaskId Timer::scheduleOnce(double delaySeconds, Callback cb)
+Timer::TaskId Timer::runAfter(double delaySeconds, Callback cb)
 {
-    return scheduleEvery(delaySeconds, std::move(cb));  // 设置为周期，再在 worker 中识别一次性
+    return runEvery(delaySeconds, std::move(cb));  // 设置为周期，再在 worker 中识别一次性
 }
 
-Timer::TaskId Timer::scheduleEvery(double intervalSeconds, Callback cb)
+Timer::TaskId Timer::runEvery(double intervalSeconds, Callback cb)
 {
     TaskId id = nextId_.fetch_add(1);
 

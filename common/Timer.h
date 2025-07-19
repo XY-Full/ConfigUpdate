@@ -17,10 +17,10 @@ public:
     ~Timer();
 
     // 添加一次性定时任务，delaySeconds 秒后执行一次 callback
-    TaskId scheduleOnce(double delaySeconds, Callback cb);
+    TaskId runAfter(double delaySeconds, Callback cb);
 
     // 添加周期性定时任务，每 intervalSeconds 秒执行 callback
-    TaskId scheduleEvery(double intervalSeconds, Callback cb);
+    TaskId runEvery(double intervalSeconds, Callback cb);
 
     // 取消任务
     void cancel(TaskId id);

@@ -43,7 +43,7 @@ void TcpServer::start()
     running_ = true;
     accept_thread_ = std::thread(&TcpServer::acceptLoop, this);
     out_thread_ = std::thread(&TcpServer::outConsumerLoop, this);
-    loop_->scheduleEvery(1.0, [this]() { this->checkHeartbeats(); });
+    loop_->runEvery(1.0f, std::bind(&TcpServer::checkHeartbeats, this));
 }
 
 void TcpServer::stop() 
