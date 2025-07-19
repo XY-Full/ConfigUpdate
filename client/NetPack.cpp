@@ -9,33 +9,35 @@ NetPack::NetPack(const google::protobuf::Message* msg, int8_t pakcFlag)
         this->msg = msg->SerializeAsString();
 }
 
-NetPack::NetPack(const NetPack& other, const google::protobuf::Message* msg, int8_t pakcFlag)
+NetPack::NetPack(const NetPack& other, const google::protobuf::Message* msg, int8_t packFlag)
 {
     len = other.len;
     seq = other.seq;
     msg_id = other.msg_id;
     conn_id = other.conn_id;
     uid = other.uid;
-    flag = pakcFlag;
+    flag = packFlag;
     if(msg)
         this->msg = msg->SerializeAsString();
 }
 
-std::shared_ptr<NetPack> NetPack::deserialize(int64_t conn_id, const std::string& data) 
+void NetPack::deserialize(int64_t conn_id, const std::string& data) 
 {
-    auto pack = std::make_shared<NetPack>();
-    if (data.size() < (sizeof(int32_t) * 3 + sizeof(int64_t) * 2 + sizeof(int8_t))) return pack;
+    if (data.size() < (sizeof(int32_t) * 3 + sizeof(int64_t) * 2 + sizeof(int8_t))) return;
 
     const char* ptr = data.data();
-    memcpy(&pack->len,      ptr,    sizeof(int32_t));      ptr += sizeof(int32_t);
-    memcpy(&pack->seq,      ptr,    sizeof(int32_t));      ptr += sizeof(int32_t);
-    memcpy(&pack->msg_id,   ptr,    sizeof(int32_t));      ptr += sizeof(int32_t);
-    memcpy(&pack->conn_id,  ptr,    sizeof(int64_t));      ptr += sizeof(int64_t);
-    memcpy(&pack->uid,      ptr,    sizeof(int64_t));      ptr += sizeof(int64_t);
-    memcpy(&pack->flag,     ptr,    sizeof(int8_t) );      ptr += sizeof(int8_t) ;
+    memcpy(&this->len,      ptr,    sizeof(int32_t));      ptr += sizeof(int32_t);
+    memcpy(&this->seq,      ptr,    sizeof(int32_t));      ptr += sizeof(int32_t);
+    memcpy(&this->msg_id,   ptr,    sizeof(int32_t));      ptr += sizeof(int32_t);
+    memcpy(&this->conn_id,  ptr,    sizeof(int64_t));      ptr += sizeof(int64_t);
+    memcpy(&this->uid,      ptr,    sizeof(int64_t));      ptr += sizeof(int64_t);
+    memcpy(&this->flag,     ptr,    sizeof(int8_t)) ;      ptr += sizeof(int8_t) ;
 
-    pack->msg.assign(ptr, data.size() - sizeof(int32_t) * 3 - sizeof(int64_t) * 2 - sizeof(int8_t));
-    return pack;
+    this->msg.assign(ptr, data.size() - sizeof(int32_t) * 3 - sizeof(int64_t) * 2 - sizeof(int8_t));
+
+    this->conn_id = conn_id;
+    
+    return;
 }
 
 std::shared_ptr<std::string> NetPack::serialize() const 

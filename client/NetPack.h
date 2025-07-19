@@ -24,8 +24,17 @@ enum ServerMsgType : int8_t {
     USR_REP_FLAG			= 16, // 回复某个玩家	
 };
 
-struct NetPack 
+class NetPack 
 {
+public:
+
+    NetPack() = default;
+    NetPack(const NetPack& request, const google::protobuf::Message* msg, int8_t msg_id = None);
+    NetPack(const google::protobuf::Message* msg, int8_t msg_id = None);
+
+    std::shared_ptr<std::string> serialize() const;
+    void deserialize(int64_t conn_id, const std::string& data);
+
     int32_t len     = 0;
     int32_t seq     = 0;
     int32_t msg_id  = 0;
@@ -34,11 +43,4 @@ struct NetPack
     int8_t  flag    = 0;
 
     std::string msg;
-
-    NetPack() = default;
-    NetPack(const NetPack& request, const google::protobuf::Message* msg, int8_t msg_id = None);
-    NetPack(const google::protobuf::Message* msg, int8_t msg_id = None);
-
-    std::shared_ptr<std::string> serialize() const;
-    static std::shared_ptr<NetPack> deserialize(int64_t conn_id, const std::string& data);
 };

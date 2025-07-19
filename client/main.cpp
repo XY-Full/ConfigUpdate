@@ -8,6 +8,16 @@
 #include "NetPack.h"
 #include "config_update.pb.h"
 #include "msg_id.pb.h"
+#include <iomanip>
+
+
+void print_bytes(const std::string& str) {
+    std::cout << "String content as bytes: ";
+    for (size_t i = 0; i < str.size(); ++i) {
+        std::cout << "0x" << std::hex << std::setw(2) << std::setfill('0') << (int)(unsigned char)str[i] << " ";
+    }
+    std::cout << std::dec << std::endl;  // 恢复十进制输出
+}
 
 int main() {
     int sock = socket(AF_INET, SOCK_STREAM, 0);
@@ -49,17 +59,18 @@ int main() {
     // 可选读取回应
     char recv_buf[1024] = {0};
     ssize_t recvd = recv(sock, recv_buf, sizeof(recv_buf) - 1, 0);
-    if (recvd > 0) {
+    if (recvd > 0) 
+    {
         recv_buf[recvd] = '\0';
         std::cout << "Received: " << recv_buf << std::endl;
     }
 
-    NetPack pack_resp;
     // 第一个参数暂时无用
-    pack_resp.deserialize(0, std::string(recv_buf));
+    NetPack pack_resp;
+    pack_resp.deserialize(0, std::string(recv_buf, recvd));
     cs::ConfigUpdate response;
     response.ParseFromString(pack_resp.msg);
-    std::cout << "Response: " << response.DebugString() << std::endl;
+    std::cout << "Response: " << response.response().err() << std::endl;
 
     close(sock);
     return 0;
