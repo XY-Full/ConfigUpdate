@@ -11,7 +11,7 @@ target_include_directories(busd_core
                             ${CMAKE_SOURCE_DIR}/logic
                             ${CMAKE_SOURCE_DIR}/busd
                             ${CMAKE_SOURCE_DIR}/protobuf/include
-                            ${CMAKE_SOURCE_DIR}/protobuf/proto_files
+                            ${CMAKE_SOURCE_DIR}/../public/proto_files
                             ${CMAKE_SOURCE_DIR}/common
                             )
                             

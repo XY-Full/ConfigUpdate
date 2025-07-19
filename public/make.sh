@@ -1,10 +1,10 @@
 #!/bin/bash 
 path=$(pwd)
-export LD_LIBRARY_PATH=$(pwd)/lib:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=$(pwd)/../third/protobuf/lib:$LD_LIBRARY_PATH
 
 mkdir proto_files -p
 
-protoc_path=$path/bin
+protoc_path=$path/../third/protobuf/bin
 
 # 仅在 .proto 被修改时重新编译
 compile_proto_if_needed() {
