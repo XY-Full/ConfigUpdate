@@ -20,7 +20,7 @@ add_subdirectory(common)
 # 可执行文件
 add_executable(server main.cpp)
 target_link_libraries(server
-    PRIVATE network_proto
+    PRIVATE network
             common
             busd_core
             logic_modules
