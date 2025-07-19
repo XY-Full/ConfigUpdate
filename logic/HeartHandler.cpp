@@ -3,6 +3,8 @@
 #include "HeartHandler.h"
 #include "gate.pb.h"
 
+HeartHandler::HeartHandler(Busd* busd) : ILogic(busd) {}
+
 void HeartHandler::registerHandlers() 
 {
     busd_->registerHandler(MSGID::CS_HEART_BEAT,

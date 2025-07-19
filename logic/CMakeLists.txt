@@ -1,6 +1,11 @@
-add_library(logic_modules STATIC
-    ConfigUpdate.cpp
+file(GLOB LOGIC_SRC
+    "${CMAKE_CURRENT_SOURCE_DIR}/*.cpp"
 )
+
+add_library(logic_modules STATIC
+    ${LOGIC_SRC}
+)
+
 
 target_include_directories(logic_modules 
                             PUBLIC 

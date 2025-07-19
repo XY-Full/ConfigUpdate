@@ -20,7 +20,7 @@ int main()
     Busd bus(&loop, &server_to_busd, &busd_to_server);
     bus.start();
 
-    ModuleManager manager(bus, &loop);
+    ModuleManager manager(&bus, &loop);
 
     manager.registerAllModule();
 

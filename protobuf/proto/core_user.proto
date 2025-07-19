@@ -1,0 +1,19 @@
+syntax = "proto3";
+package core;
+
+message UsrSvrMappingData
+{
+    int64              ver       = 1;
+    int64              upt_time  = 2;
+    int64              connid    = 3;
+    map<int32, uint32> mapping   = 4;    // core::ServiceType, suid 
+}
+
+message UserDataInfo
+{   
+    int64  accountid            = 1;
+    int64  expire_time          = 2;
+    int32  state                = 3;
+    bool   online               = 4;
+    int64  last_heartbeat_time  = 5;
+}

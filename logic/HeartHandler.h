@@ -1,7 +1,10 @@
 #include "ILogic.h"
 
-class HeartHandler : public ILogic {
+class HeartHandler : public ILogic 
+{
 public:
+    HeartHandler(Busd*);
+    
     void registerHandlers() override;
 
 private:

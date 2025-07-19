@@ -4,6 +4,7 @@
 #include <cstring>
 #include <iostream>
 #include "Log.h"
+#include "config_update.pb.h"
 
 TcpServer::TcpServer(int port,
                      Channel<std::pair<int64_t, std::shared_ptr<NetPack>>>* out,
@@ -146,7 +147,6 @@ void TcpServer::cleanupConnection(int fd)
         std::cout << "Closed connection: " << conn_id << std::endl;
     }
 }
-
 
 void TcpServer::outConsumerLoop() 
 {

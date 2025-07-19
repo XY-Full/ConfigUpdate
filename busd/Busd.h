@@ -2,22 +2,32 @@
 #include "Channel.h"
 #include "NetPack.h"
 #include <functional>
+#include <memory>
 #include <thread>
 #include "Timer.h"
 #include "Log.h"
 #include "google/protobuf/message.h"
+#include "core_user.pb.h"
+
+using namespace std::placeholders;
 
 class Busd 
 {
 public:
     using Handler = std::function<void(const NetPack&)>;
+	typedef std::function<void(const NetPack&)> ForwardHandleFunc;
 
     Busd(Timer* loop,
         Channel<std::pair<int64_t, std::shared_ptr<NetPack>>>* in,
-        Channel<std::pair<int64_t, std::shared_ptr<NetPack>>>* out) : running_(false), loop_(loop), in_channel_(in), out_channel_(out) {}
+        Channel<std::pair<int64_t, std::shared_ptr<NetPack>>>* out) : running_(false), loop_(loop), in_channel_(in), out_channel_(out) 
+    {
+        forwardHandleArray_[C2S_FLAG] = std::bind(&Busd::forwardC2S, this, _1);
+        forwardHandleArray_[S2C_FLAG] = std::bind(&Busd::forwardS2C, this, _1);
+    }
 
     void registerHandler(int32_t msg_id, Handler handler) 
     {
+        ILOG << "registerHandler by msg_id: " << msg_id;
         handlers_[msg_id] = std::move(handler);
     }
 
@@ -33,14 +43,20 @@ public:
         if (worker_.joinable()) worker_.join();
     }
 
-    void sendToClient(int64_t conn_id, const NetPack& pack) 
+    void sendToClient(int64_t uid, int32_t msg_id, const google::protobuf::Message& msg) 
     {
-        out_channel_->push({conn_id, std::make_shared<NetPack>(pack)});
+        auto sendPack = std::make_shared<NetPack>(&msg, S2C_FLAG);
+        sendPack->uid = uid;
+        sendPack->msg_id = msg_id;
+
+        auto userdata = UsrSvrMap[uid];
+        sendPack->conn_id = userdata.connid();
+        out_channel_->push({userdata.connid(), sendPack});
     }
 
     void replyToClient(const NetPack& request, const google::protobuf::Message& msg)
     {
-        auto responsePack = std::make_shared<NetPack>(request, &msg);
+        auto responsePack = std::make_shared<NetPack>(request, &msg, S2C_FLAG);
         out_channel_->push({request.conn_id, responsePack});
     }
 
@@ -57,33 +73,15 @@ private:
             }
             if (in_channel_->try_pop(item)) 
             {
-                auto conn_id = item.first;
                 auto pack = item.second;
-                auto body = pack->msg;
 
-                DLOG << "busd recv body : " << body;
-
-                try 
-                {
-		            std::cout << "msg_id : " << pack->msg_id << std::endl;
-                    auto it = handlers_.find(pack->msg_id);
-                    if (it != handlers_.end())
-                    {
-                        ILOG << "trigger handlers!";
-                        it->second(*pack);
-                    }
-                    else
-                    {
-			            ELOG << "msg_id :" << pack->msg_id << " never be registed!";
-                        // 未注册 msg_id 的处理器
-                        // 可记录日志或忽略
-                    }
-                } 
-                catch (const std::exception& e) 
-                {
-		            ELOG << "deserialize error to NetPack!";
-                    // 反序列化错误处理（可选日志）
-                }
+				auto forward_func = forwardHandleArray_.at(pack->flag);
+				if(!forward_func)
+				{
+					ELOG << "invalid msg_type: " << pack->flag;
+					continue;
+				}
+                forward_func(*pack);
             } 
             else 
             {
@@ -92,10 +90,57 @@ private:
         }
     }
 
+
+	// 会缓存记录路由信息
+	void forwardC2S(const NetPack& pack)
+	{
+		int64_t connid = pack.conn_id;
+		int32_t msgid = pack.msg_id;
+		if(connid == 0)
+		{
+			ELOG << "C2S: invalid connid, msgid:" << msgid;
+			return;
+		}
+	
+		int64_t uid = pack.uid;
+		auto userdata = UsrSvrMap[uid];
+		if(userdata.connid() != connid)
+		{
+			userdata.set_connid(connid);
+			userdata.set_ver(userdata.ver() + 1);
+		}
+		
+        try 
+        {
+            std::cout << "msg_id : " << pack.msg_id << std::endl;
+            auto it = handlers_.find(pack.msg_id);
+            if (it != handlers_.end())
+            {
+                ILOG << "trigger handlers!";
+                it->second(pack);
+            }
+            else
+            {
+                ELOG << "msg_id :" << pack.msg_id << " never be registed!";
+            }
+        } 
+        catch (const std::exception& e) 
+        {
+            ELOG << "deserialize error to NetPack!";
+        }
+	}
+
+	void forwardS2C(const NetPack& pack)
+	{
+	}
+
     std::unordered_map<int32_t, Handler>    handlers_;
     Channel<std::pair<int64_t, std::shared_ptr<NetPack>>>* in_channel_ = nullptr;
     Channel<std::pair<int64_t, std::shared_ptr<NetPack>>>* out_channel_ = nullptr;
     Timer*                                  loop_;
     std::thread                             worker_;
     std::atomic<bool>                       running_ = false;
+
+    std::unordered_map<int64_t, core::UsrSvrMappingData> UsrSvrMap;
+	std::array<ForwardHandleFunc, std::numeric_limits<int8_t>::max()> forwardHandleArray_;
 };

@@ -1,8 +1,11 @@
 
 #include "ILogic.h"
 
-class ConfigModule : public ILogic {
+class ConfigUpdate : public ILogic 
+{
 public:
+    ConfigUpdate(Busd* busd);
+
     void registerHandlers() override;
 
 private:

@@ -1,7 +1,9 @@
+file(GLOB BUSD_CORE_SRC
+    "${CMAKE_CURRENT_SOURCE_DIR}/*.cpp"
+)
 
 add_library(busd_core STATIC
-    Busd.h
-    ModuleManager.cpp
+    ${BUSD_CORE_SRC}
 )
 
 target_include_directories(busd_core 

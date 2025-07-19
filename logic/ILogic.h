@@ -30,7 +30,7 @@
 class ILogic 
 {
 public:
-    ILogic(Busd* bus) : busd_(bus) {}
+    ILogic(Busd* busd) : busd_(busd) {}
     virtual ~ILogic() = default;
     virtual void registerHandlers() = 0;
 

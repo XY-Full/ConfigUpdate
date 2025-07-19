@@ -24,8 +24,9 @@ enum ServerMsgType : int8_t {
     USR_REP_FLAG			= 16, // 回复某个玩家	
 };
 
-struct NetPack 
+class NetPack : std::enable_shared_from_this<NetPack>
 {
+public:
     int32_t len     = 0;
     int32_t seq     = 0;
     int32_t msg_id  = 0;
@@ -40,5 +41,5 @@ struct NetPack
     NetPack(const google::protobuf::Message* msg, int8_t msg_id = None);
 
     std::shared_ptr<std::string> serialize() const;
-    static std::shared_ptr<NetPack> deserialize(int64_t conn_id, const std::string& data);
+    void deserialize(int64_t conn_id, const std::string& data);
 };
