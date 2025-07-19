@@ -4,7 +4,6 @@
 #include <cstring>
 #include <iostream>
 #include "Log.h"
-#include "config_update.pb.h"
 
 TcpServer::TcpServer(int port,
                      Channel<std::pair<int64_t, std::shared_ptr<NetPack>>>* out,
@@ -97,8 +96,10 @@ void TcpServer::acceptLoop()
                     continue;
                 }
 
-                std::cout << "recv from [" << conn_id << "] : " << full_data << std::endl;
-                server_to_busd->push({conn_id, NetPack::deserialize(conn_id, full_data)});
+                ILOG << "recv from [" << conn_id << "] : " << full_data;
+                auto recv_pack = std::make_shared<NetPack>();
+                recv_pack->deserialize(conn_id, full_data);
+                server_to_busd->push({conn_id, recv_pack});
                 last_active_time_[conn_id] = std::chrono::steady_clock::now();
             }
         }
