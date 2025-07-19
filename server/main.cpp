@@ -2,7 +2,7 @@
 #include "network/TcpServer.h"
 #include "Busd.h"
 #include "ModuleManager.h"
-#include "ConfigUpdate.cpp"  // 或者 .h + .cpp 分离
+#include "ConfigUpdate.cpp"
 #include <csignal>
 #include <memory>
 #include "Channel.h"

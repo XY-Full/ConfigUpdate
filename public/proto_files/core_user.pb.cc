@@ -16,53 +16,59 @@
 #include <google/protobuf/port_def.inc>
 
 PROTOBUF_PRAGMA_INIT_SEG
+
+namespace _pb = ::PROTOBUF_NAMESPACE_ID;
+namespace _pbi = _pb::internal;
+
 namespace core {
-constexpr UsrSvrMappingData_MappingEntry_DoNotUse::UsrSvrMappingData_MappingEntry_DoNotUse(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized){}
+PROTOBUF_CONSTEXPR UsrSvrMappingData_MappingEntry_DoNotUse::UsrSvrMappingData_MappingEntry_DoNotUse(
+    ::_pbi::ConstantInitialized) {}
 struct UsrSvrMappingData_MappingEntry_DoNotUseDefaultTypeInternal {
-  constexpr UsrSvrMappingData_MappingEntry_DoNotUseDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR UsrSvrMappingData_MappingEntry_DoNotUseDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
   ~UsrSvrMappingData_MappingEntry_DoNotUseDefaultTypeInternal() {}
   union {
     UsrSvrMappingData_MappingEntry_DoNotUse _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT UsrSvrMappingData_MappingEntry_DoNotUseDefaultTypeInternal _UsrSvrMappingData_MappingEntry_DoNotUse_default_instance_;
-constexpr UsrSvrMappingData::UsrSvrMappingData(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : mapping_(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{})
-  , ver_(int64_t{0})
-  , upt_time_(int64_t{0})
-  , connid_(int64_t{0}){}
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 UsrSvrMappingData_MappingEntry_DoNotUseDefaultTypeInternal _UsrSvrMappingData_MappingEntry_DoNotUse_default_instance_;
+PROTOBUF_CONSTEXPR UsrSvrMappingData::UsrSvrMappingData(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.mapping_)*/{::_pbi::ConstantInitialized()}
+  , /*decltype(_impl_.ver_)*/int64_t{0}
+  , /*decltype(_impl_.upt_time_)*/int64_t{0}
+  , /*decltype(_impl_.connid_)*/int64_t{0}
+  , /*decltype(_impl_._cached_size_)*/{}} {}
 struct UsrSvrMappingDataDefaultTypeInternal {
-  constexpr UsrSvrMappingDataDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR UsrSvrMappingDataDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
   ~UsrSvrMappingDataDefaultTypeInternal() {}
   union {
     UsrSvrMappingData _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT UsrSvrMappingDataDefaultTypeInternal _UsrSvrMappingData_default_instance_;
-constexpr UserDataInfo::UserDataInfo(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : accountid_(int64_t{0})
-  , expire_time_(int64_t{0})
-  , state_(0)
-  , online_(false)
-  , last_heartbeat_time_(int64_t{0}){}
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 UsrSvrMappingDataDefaultTypeInternal _UsrSvrMappingData_default_instance_;
+PROTOBUF_CONSTEXPR UserDataInfo::UserDataInfo(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.accountid_)*/int64_t{0}
+  , /*decltype(_impl_.expire_time_)*/int64_t{0}
+  , /*decltype(_impl_.state_)*/0
+  , /*decltype(_impl_.online_)*/false
+  , /*decltype(_impl_.last_heartbeat_time_)*/int64_t{0}
+  , /*decltype(_impl_._cached_size_)*/{}} {}
 struct UserDataInfoDefaultTypeInternal {
-  constexpr UserDataInfoDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR UserDataInfoDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
   ~UserDataInfoDefaultTypeInternal() {}
   union {
     UserDataInfo _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT UserDataInfoDefaultTypeInternal _UserDataInfo_default_instance_;
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 UserDataInfoDefaultTypeInternal _UserDataInfo_default_instance_;
 }  // namespace core
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_core_5fuser_2eproto[3];
-static constexpr ::PROTOBUF_NAMESPACE_ID::EnumDescriptor const** file_level_enum_descriptors_core_5fuser_2eproto = nullptr;
-static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_core_5fuser_2eproto = nullptr;
+static ::_pb::Metadata file_level_metadata_core_5fuser_2eproto[3];
+static constexpr ::_pb::EnumDescriptor const** file_level_enum_descriptors_core_5fuser_2eproto = nullptr;
+static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_core_5fuser_2eproto = nullptr;
 
 const uint32_t TableStruct_core_5fuser_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   PROTOBUF_FIELD_OFFSET(::core::UsrSvrMappingData_MappingEntry_DoNotUse, _has_bits_),
@@ -81,32 +87,32 @@ const uint32_t TableStruct_core_5fuser_2eproto::offsets[] PROTOBUF_SECTION_VARIA
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::core::UsrSvrMappingData, ver_),
-  PROTOBUF_FIELD_OFFSET(::core::UsrSvrMappingData, upt_time_),
-  PROTOBUF_FIELD_OFFSET(::core::UsrSvrMappingData, connid_),
-  PROTOBUF_FIELD_OFFSET(::core::UsrSvrMappingData, mapping_),
+  PROTOBUF_FIELD_OFFSET(::core::UsrSvrMappingData, _impl_.ver_),
+  PROTOBUF_FIELD_OFFSET(::core::UsrSvrMappingData, _impl_.upt_time_),
+  PROTOBUF_FIELD_OFFSET(::core::UsrSvrMappingData, _impl_.connid_),
+  PROTOBUF_FIELD_OFFSET(::core::UsrSvrMappingData, _impl_.mapping_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::core::UserDataInfo, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::core::UserDataInfo, accountid_),
-  PROTOBUF_FIELD_OFFSET(::core::UserDataInfo, expire_time_),
-  PROTOBUF_FIELD_OFFSET(::core::UserDataInfo, state_),
-  PROTOBUF_FIELD_OFFSET(::core::UserDataInfo, online_),
-  PROTOBUF_FIELD_OFFSET(::core::UserDataInfo, last_heartbeat_time_),
+  PROTOBUF_FIELD_OFFSET(::core::UserDataInfo, _impl_.accountid_),
+  PROTOBUF_FIELD_OFFSET(::core::UserDataInfo, _impl_.expire_time_),
+  PROTOBUF_FIELD_OFFSET(::core::UserDataInfo, _impl_.state_),
+  PROTOBUF_FIELD_OFFSET(::core::UserDataInfo, _impl_.online_),
+  PROTOBUF_FIELD_OFFSET(::core::UserDataInfo, _impl_.last_heartbeat_time_),
 };
-static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
+static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, 8, -1, sizeof(::core::UsrSvrMappingData_MappingEntry_DoNotUse)},
   { 10, -1, -1, sizeof(::core::UsrSvrMappingData)},
   { 20, -1, -1, sizeof(::core::UserDataInfo)},
 };
 
-static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::core::_UsrSvrMappingData_MappingEntry_DoNotUse_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::core::_UsrSvrMappingData_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::core::_UserDataInfo_default_instance_),
+static const ::_pb::Message* const file_default_instances[] = {
+  &::core::_UsrSvrMappingData_MappingEntry_DoNotUse_default_instance_._instance,
+  &::core::_UsrSvrMappingData_default_instance_._instance,
+  &::core::_UserDataInfo_default_instance_._instance,
 };
 
 const char descriptor_table_protodef_core_5fuser_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
@@ -119,19 +125,21 @@ const char descriptor_table_protodef_core_5fuser_2eproto[] PROTOBUF_SECTION_VARI
   "_time\030\002 \001(\003\022\r\n\005state\030\003 \001(\005\022\016\n\006online\030\004 \001"
   "(\010\022\033\n\023last_heartbeat_time\030\005 \001(\003b\006proto3"
   ;
-static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_core_5fuser_2eproto_once;
-const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_core_5fuser_2eproto = {
-  false, false, 319, descriptor_table_protodef_core_5fuser_2eproto, "core_user.proto", 
-  &descriptor_table_core_5fuser_2eproto_once, nullptr, 0, 3,
-  schemas, file_default_instances, TableStruct_core_5fuser_2eproto::offsets,
-  file_level_metadata_core_5fuser_2eproto, file_level_enum_descriptors_core_5fuser_2eproto, file_level_service_descriptors_core_5fuser_2eproto,
+static ::_pbi::once_flag descriptor_table_core_5fuser_2eproto_once;
+const ::_pbi::DescriptorTable descriptor_table_core_5fuser_2eproto = {
+    false, false, 319, descriptor_table_protodef_core_5fuser_2eproto,
+    "core_user.proto",
+    &descriptor_table_core_5fuser_2eproto_once, nullptr, 0, 3,
+    schemas, file_default_instances, TableStruct_core_5fuser_2eproto::offsets,
+    file_level_metadata_core_5fuser_2eproto, file_level_enum_descriptors_core_5fuser_2eproto,
+    file_level_service_descriptors_core_5fuser_2eproto,
 };
-PROTOBUF_ATTRIBUTE_WEAK const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable* descriptor_table_core_5fuser_2eproto_getter() {
+PROTOBUF_ATTRIBUTE_WEAK const ::_pbi::DescriptorTable* descriptor_table_core_5fuser_2eproto_getter() {
   return &descriptor_table_core_5fuser_2eproto;
 }
 
 // Force running AddDescriptors() at dynamic initialization time.
-PROTOBUF_ATTRIBUTE_INIT_PRIORITY static ::PROTOBUF_NAMESPACE_ID::internal::AddDescriptorsRunner dynamic_init_dummy_core_5fuser_2eproto(&descriptor_table_core_5fuser_2eproto);
+PROTOBUF_ATTRIBUTE_INIT_PRIORITY2 static ::_pbi::AddDescriptorsRunner dynamic_init_dummy_core_5fuser_2eproto(&descriptor_table_core_5fuser_2eproto);
 namespace core {
 
 // ===================================================================
@@ -143,7 +151,7 @@ void UsrSvrMappingData_MappingEntry_DoNotUse::MergeFrom(const UsrSvrMappingData_
   MergeFromInternal(other);
 }
 ::PROTOBUF_NAMESPACE_ID::Metadata UsrSvrMappingData_MappingEntry_DoNotUse::GetMetadata() const {
-  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+  return ::_pbi::AssignDescriptors(
       &descriptor_table_core_5fuser_2eproto_getter, &descriptor_table_core_5fuser_2eproto_once,
       file_level_metadata_core_5fuser_2eproto[0]);
 }
@@ -156,54 +164,66 @@ class UsrSvrMappingData::_Internal {
 
 UsrSvrMappingData::UsrSvrMappingData(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
-  mapping_(arena) {
-  SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  if (arena != nullptr && !is_message_owned) {
+    arena->OwnCustomDestructor(this, &UsrSvrMappingData::ArenaDtor);
   }
   // @@protoc_insertion_point(arena_constructor:core.UsrSvrMappingData)
 }
 UsrSvrMappingData::UsrSvrMappingData(const UsrSvrMappingData& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
+  UsrSvrMappingData* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      /*decltype(_impl_.mapping_)*/{}
+    , decltype(_impl_.ver_){}
+    , decltype(_impl_.upt_time_){}
+    , decltype(_impl_.connid_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  mapping_.MergeFrom(from.mapping_);
-  ::memcpy(&ver_, &from.ver_,
-    static_cast<size_t>(reinterpret_cast<char*>(&connid_) -
-    reinterpret_cast<char*>(&ver_)) + sizeof(connid_));
+  _this->_impl_.mapping_.MergeFrom(from._impl_.mapping_);
+  ::memcpy(&_impl_.ver_, &from._impl_.ver_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.connid_) -
+    reinterpret_cast<char*>(&_impl_.ver_)) + sizeof(_impl_.connid_));
   // @@protoc_insertion_point(copy_constructor:core.UsrSvrMappingData)
 }
 
-inline void UsrSvrMappingData::SharedCtor() {
-::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-    reinterpret_cast<char*>(&ver_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&connid_) -
-    reinterpret_cast<char*>(&ver_)) + sizeof(connid_));
+inline void UsrSvrMappingData::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      /*decltype(_impl_.mapping_)*/{::_pbi::ArenaInitialized(), arena}
+    , decltype(_impl_.ver_){int64_t{0}}
+    , decltype(_impl_.upt_time_){int64_t{0}}
+    , decltype(_impl_.connid_){int64_t{0}}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
 }
 
 UsrSvrMappingData::~UsrSvrMappingData() {
   // @@protoc_insertion_point(destructor:core.UsrSvrMappingData)
-  if (GetArenaForAllocation() != nullptr) return;
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    ArenaDtor(this);
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 inline void UsrSvrMappingData::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.mapping_.Destruct();
+  _impl_.mapping_.~MapField();
 }
 
 void UsrSvrMappingData::ArenaDtor(void* object) {
   UsrSvrMappingData* _this = reinterpret_cast< UsrSvrMappingData* >(object);
-  (void)_this;
-  _this->mapping_. ~MapField();
-}
-inline void UsrSvrMappingData::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena) {
-  if (arena != nullptr) {
-    arena->OwnCustomDestructor(this, &UsrSvrMappingData::ArenaDtor);
-  }
+  _this->_impl_.mapping_.Destruct();
 }
 void UsrSvrMappingData::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
+  _impl_._cached_size_.Set(size);
 }
 
 void UsrSvrMappingData::Clear() {
@@ -212,23 +232,23 @@ void UsrSvrMappingData::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  mapping_.Clear();
-  ::memset(&ver_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&connid_) -
-      reinterpret_cast<char*>(&ver_)) + sizeof(connid_));
+  _impl_.mapping_.Clear();
+  ::memset(&_impl_.ver_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&_impl_.connid_) -
+      reinterpret_cast<char*>(&_impl_.ver_)) + sizeof(_impl_.connid_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* UsrSvrMappingData::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* UsrSvrMappingData::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // int64 ver = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
-          ver_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          _impl_.ver_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -236,7 +256,7 @@ const char* UsrSvrMappingData::_InternalParse(const char* ptr, ::PROTOBUF_NAMESP
       // int64 upt_time = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
-          upt_time_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          _impl_.upt_time_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -244,7 +264,7 @@ const char* UsrSvrMappingData::_InternalParse(const char* ptr, ::PROTOBUF_NAMESP
       // int64 connid = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
-          connid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          _impl_.connid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -255,7 +275,7 @@ const char* UsrSvrMappingData::_InternalParse(const char* ptr, ::PROTOBUF_NAMESP
           ptr -= 1;
           do {
             ptr += 1;
-            ptr = ctx->ParseMessage(&mapping_, ptr);
+            ptr = ctx->ParseMessage(&_impl_.mapping_, ptr);
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<34>(ptr));
@@ -294,54 +314,40 @@ uint8_t* UsrSvrMappingData::_InternalSerialize(
   // int64 ver = 1;
   if (this->_internal_ver() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(1, this->_internal_ver(), target);
+    target = ::_pbi::WireFormatLite::WriteInt64ToArray(1, this->_internal_ver(), target);
   }
 
   // int64 upt_time = 2;
   if (this->_internal_upt_time() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(2, this->_internal_upt_time(), target);
+    target = ::_pbi::WireFormatLite::WriteInt64ToArray(2, this->_internal_upt_time(), target);
   }
 
   // int64 connid = 3;
   if (this->_internal_connid() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(3, this->_internal_connid(), target);
+    target = ::_pbi::WireFormatLite::WriteInt64ToArray(3, this->_internal_connid(), target);
   }
 
   // map<int32, uint32> mapping = 4;
   if (!this->_internal_mapping().empty()) {
-    typedef ::PROTOBUF_NAMESPACE_ID::Map< int32_t, uint32_t >::const_pointer
-        ConstPtr;
-    typedef ::PROTOBUF_NAMESPACE_ID::internal::SortItem< int32_t, ConstPtr > SortItem;
-    typedef ::PROTOBUF_NAMESPACE_ID::internal::CompareByFirstField<SortItem> Less;
+    using MapType = ::_pb::Map<int32_t, uint32_t>;
+    using WireHelper = UsrSvrMappingData_MappingEntry_DoNotUse::Funcs;
+    const auto& map_field = this->_internal_mapping();
 
-    if (stream->IsSerializationDeterministic() &&
-        this->_internal_mapping().size() > 1) {
-      ::std::unique_ptr<SortItem[]> items(
-          new SortItem[this->_internal_mapping().size()]);
-      typedef ::PROTOBUF_NAMESPACE_ID::Map< int32_t, uint32_t >::size_type size_type;
-      size_type n = 0;
-      for (::PROTOBUF_NAMESPACE_ID::Map< int32_t, uint32_t >::const_iterator
-          it = this->_internal_mapping().begin();
-          it != this->_internal_mapping().end(); ++it, ++n) {
-        items[static_cast<ptrdiff_t>(n)] = SortItem(&*it);
-      }
-      ::std::sort(&items[0], &items[static_cast<ptrdiff_t>(n)], Less());
-      for (size_type i = 0; i < n; i++) {
-        target = UsrSvrMappingData_MappingEntry_DoNotUse::Funcs::InternalSerialize(4, items[static_cast<ptrdiff_t>(i)].second->first, items[static_cast<ptrdiff_t>(i)].second->second, target, stream);
+    if (stream->IsSerializationDeterministic() && map_field.size() > 1) {
+      for (const auto& entry : ::_pbi::MapSorterFlat<MapType>(map_field)) {
+        target = WireHelper::InternalSerialize(4, entry.first, entry.second, target, stream);
       }
     } else {
-      for (::PROTOBUF_NAMESPACE_ID::Map< int32_t, uint32_t >::const_iterator
-          it = this->_internal_mapping().begin();
-          it != this->_internal_mapping().end(); ++it) {
-        target = UsrSvrMappingData_MappingEntry_DoNotUse::Funcs::InternalSerialize(4, it->first, it->second, target, stream);
+      for (const auto& entry : map_field) {
+        target = WireHelper::InternalSerialize(4, entry.first, entry.second, target, stream);
       }
     }
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:core.UsrSvrMappingData)
@@ -367,52 +373,48 @@ size_t UsrSvrMappingData::ByteSizeLong() const {
 
   // int64 ver = 1;
   if (this->_internal_ver() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64SizePlusOne(this->_internal_ver());
+    total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(this->_internal_ver());
   }
 
   // int64 upt_time = 2;
   if (this->_internal_upt_time() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64SizePlusOne(this->_internal_upt_time());
+    total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(this->_internal_upt_time());
   }
 
   // int64 connid = 3;
   if (this->_internal_connid() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64SizePlusOne(this->_internal_connid());
+    total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(this->_internal_connid());
   }
 
-  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData UsrSvrMappingData::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
     UsrSvrMappingData::MergeImpl
 };
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*UsrSvrMappingData::GetClassData() const { return &_class_data_; }
 
-void UsrSvrMappingData::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
-                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-  static_cast<UsrSvrMappingData *>(to)->MergeFrom(
-      static_cast<const UsrSvrMappingData &>(from));
-}
 
-
-void UsrSvrMappingData::MergeFrom(const UsrSvrMappingData& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:core.UsrSvrMappingData)
-  GOOGLE_DCHECK_NE(&from, this);
+void UsrSvrMappingData::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<UsrSvrMappingData*>(&to_msg);
+  auto& from = static_cast<const UsrSvrMappingData&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:core.UsrSvrMappingData)
+  GOOGLE_DCHECK_NE(&from, _this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  mapping_.MergeFrom(from.mapping_);
+  _this->_impl_.mapping_.MergeFrom(from._impl_.mapping_);
   if (from._internal_ver() != 0) {
-    _internal_set_ver(from._internal_ver());
+    _this->_internal_set_ver(from._internal_ver());
   }
   if (from._internal_upt_time() != 0) {
-    _internal_set_upt_time(from._internal_upt_time());
+    _this->_internal_set_upt_time(from._internal_upt_time());
   }
   if (from._internal_connid() != 0) {
-    _internal_set_connid(from._internal_connid());
+    _this->_internal_set_connid(from._internal_connid());
   }
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void UsrSvrMappingData::CopyFrom(const UsrSvrMappingData& from) {
@@ -429,17 +431,17 @@ bool UsrSvrMappingData::IsInitialized() const {
 void UsrSvrMappingData::InternalSwap(UsrSvrMappingData* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  mapping_.InternalSwap(&other->mapping_);
+  _impl_.mapping_.InternalSwap(&other->_impl_.mapping_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(UsrSvrMappingData, connid_)
-      + sizeof(UsrSvrMappingData::connid_)
-      - PROTOBUF_FIELD_OFFSET(UsrSvrMappingData, ver_)>(
-          reinterpret_cast<char*>(&ver_),
-          reinterpret_cast<char*>(&other->ver_));
+      PROTOBUF_FIELD_OFFSET(UsrSvrMappingData, _impl_.connid_)
+      + sizeof(UsrSvrMappingData::_impl_.connid_)
+      - PROTOBUF_FIELD_OFFSET(UsrSvrMappingData, _impl_.ver_)>(
+          reinterpret_cast<char*>(&_impl_.ver_),
+          reinterpret_cast<char*>(&other->_impl_.ver_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata UsrSvrMappingData::GetMetadata() const {
-  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+  return ::_pbi::AssignDescriptors(
       &descriptor_table_core_5fuser_2eproto_getter, &descriptor_table_core_5fuser_2eproto_once,
       file_level_metadata_core_5fuser_2eproto[1]);
 }
@@ -453,47 +455,56 @@ class UserDataInfo::_Internal {
 UserDataInfo::UserDataInfo(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
-  SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
+  SharedCtor(arena, is_message_owned);
   // @@protoc_insertion_point(arena_constructor:core.UserDataInfo)
 }
 UserDataInfo::UserDataInfo(const UserDataInfo& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
+  UserDataInfo* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.accountid_){}
+    , decltype(_impl_.expire_time_){}
+    , decltype(_impl_.state_){}
+    , decltype(_impl_.online_){}
+    , decltype(_impl_.last_heartbeat_time_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&accountid_, &from.accountid_,
-    static_cast<size_t>(reinterpret_cast<char*>(&last_heartbeat_time_) -
-    reinterpret_cast<char*>(&accountid_)) + sizeof(last_heartbeat_time_));
+  ::memcpy(&_impl_.accountid_, &from._impl_.accountid_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.last_heartbeat_time_) -
+    reinterpret_cast<char*>(&_impl_.accountid_)) + sizeof(_impl_.last_heartbeat_time_));
   // @@protoc_insertion_point(copy_constructor:core.UserDataInfo)
 }
 
-inline void UserDataInfo::SharedCtor() {
-::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-    reinterpret_cast<char*>(&accountid_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&last_heartbeat_time_) -
-    reinterpret_cast<char*>(&accountid_)) + sizeof(last_heartbeat_time_));
+inline void UserDataInfo::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.accountid_){int64_t{0}}
+    , decltype(_impl_.expire_time_){int64_t{0}}
+    , decltype(_impl_.state_){0}
+    , decltype(_impl_.online_){false}
+    , decltype(_impl_.last_heartbeat_time_){int64_t{0}}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
 }
 
 UserDataInfo::~UserDataInfo() {
   // @@protoc_insertion_point(destructor:core.UserDataInfo)
-  if (GetArenaForAllocation() != nullptr) return;
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 inline void UserDataInfo::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
 }
 
-void UserDataInfo::ArenaDtor(void* object) {
-  UserDataInfo* _this = reinterpret_cast< UserDataInfo* >(object);
-  (void)_this;
-}
-void UserDataInfo::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void UserDataInfo::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
+  _impl_._cached_size_.Set(size);
 }
 
 void UserDataInfo::Clear() {
@@ -502,22 +513,22 @@ void UserDataInfo::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  ::memset(&accountid_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&last_heartbeat_time_) -
-      reinterpret_cast<char*>(&accountid_)) + sizeof(last_heartbeat_time_));
+  ::memset(&_impl_.accountid_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&_impl_.last_heartbeat_time_) -
+      reinterpret_cast<char*>(&_impl_.accountid_)) + sizeof(_impl_.last_heartbeat_time_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* UserDataInfo::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* UserDataInfo::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // int64 accountid = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
-          accountid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          _impl_.accountid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -525,7 +536,7 @@ const char* UserDataInfo::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_I
       // int64 expire_time = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
-          expire_time_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          _impl_.expire_time_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -533,7 +544,7 @@ const char* UserDataInfo::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_I
       // int32 state = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
-          state_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          _impl_.state_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -541,7 +552,7 @@ const char* UserDataInfo::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_I
       // bool online = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
-          online_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          _impl_.online_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -549,7 +560,7 @@ const char* UserDataInfo::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_I
       // int64 last_heartbeat_time = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 40)) {
-          last_heartbeat_time_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          _impl_.last_heartbeat_time_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -586,35 +597,35 @@ uint8_t* UserDataInfo::_InternalSerialize(
   // int64 accountid = 1;
   if (this->_internal_accountid() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(1, this->_internal_accountid(), target);
+    target = ::_pbi::WireFormatLite::WriteInt64ToArray(1, this->_internal_accountid(), target);
   }
 
   // int64 expire_time = 2;
   if (this->_internal_expire_time() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(2, this->_internal_expire_time(), target);
+    target = ::_pbi::WireFormatLite::WriteInt64ToArray(2, this->_internal_expire_time(), target);
   }
 
   // int32 state = 3;
   if (this->_internal_state() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(3, this->_internal_state(), target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(3, this->_internal_state(), target);
   }
 
   // bool online = 4;
   if (this->_internal_online() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(4, this->_internal_online(), target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(4, this->_internal_online(), target);
   }
 
   // int64 last_heartbeat_time = 5;
   if (this->_internal_last_heartbeat_time() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(5, this->_internal_last_heartbeat_time(), target);
+    target = ::_pbi::WireFormatLite::WriteInt64ToArray(5, this->_internal_last_heartbeat_time(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:core.UserDataInfo)
@@ -631,17 +642,17 @@ size_t UserDataInfo::ByteSizeLong() const {
 
   // int64 accountid = 1;
   if (this->_internal_accountid() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64SizePlusOne(this->_internal_accountid());
+    total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(this->_internal_accountid());
   }
 
   // int64 expire_time = 2;
   if (this->_internal_expire_time() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64SizePlusOne(this->_internal_expire_time());
+    total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(this->_internal_expire_time());
   }
 
   // int32 state = 3;
   if (this->_internal_state() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32SizePlusOne(this->_internal_state());
+    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_state());
   }
 
   // bool online = 4;
@@ -651,47 +662,43 @@ size_t UserDataInfo::ByteSizeLong() const {
 
   // int64 last_heartbeat_time = 5;
   if (this->_internal_last_heartbeat_time() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64SizePlusOne(this->_internal_last_heartbeat_time());
+    total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(this->_internal_last_heartbeat_time());
   }
 
-  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData UserDataInfo::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
     UserDataInfo::MergeImpl
 };
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*UserDataInfo::GetClassData() const { return &_class_data_; }
 
-void UserDataInfo::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
-                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-  static_cast<UserDataInfo *>(to)->MergeFrom(
-      static_cast<const UserDataInfo &>(from));
-}
 
-
-void UserDataInfo::MergeFrom(const UserDataInfo& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:core.UserDataInfo)
-  GOOGLE_DCHECK_NE(&from, this);
+void UserDataInfo::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<UserDataInfo*>(&to_msg);
+  auto& from = static_cast<const UserDataInfo&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:core.UserDataInfo)
+  GOOGLE_DCHECK_NE(&from, _this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   if (from._internal_accountid() != 0) {
-    _internal_set_accountid(from._internal_accountid());
+    _this->_internal_set_accountid(from._internal_accountid());
   }
   if (from._internal_expire_time() != 0) {
-    _internal_set_expire_time(from._internal_expire_time());
+    _this->_internal_set_expire_time(from._internal_expire_time());
   }
   if (from._internal_state() != 0) {
-    _internal_set_state(from._internal_state());
+    _this->_internal_set_state(from._internal_state());
   }
   if (from._internal_online() != 0) {
-    _internal_set_online(from._internal_online());
+    _this->_internal_set_online(from._internal_online());
   }
   if (from._internal_last_heartbeat_time() != 0) {
-    _internal_set_last_heartbeat_time(from._internal_last_heartbeat_time());
+    _this->_internal_set_last_heartbeat_time(from._internal_last_heartbeat_time());
   }
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void UserDataInfo::CopyFrom(const UserDataInfo& from) {
@@ -709,15 +716,15 @@ void UserDataInfo::InternalSwap(UserDataInfo* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(UserDataInfo, last_heartbeat_time_)
-      + sizeof(UserDataInfo::last_heartbeat_time_)
-      - PROTOBUF_FIELD_OFFSET(UserDataInfo, accountid_)>(
-          reinterpret_cast<char*>(&accountid_),
-          reinterpret_cast<char*>(&other->accountid_));
+      PROTOBUF_FIELD_OFFSET(UserDataInfo, _impl_.last_heartbeat_time_)
+      + sizeof(UserDataInfo::_impl_.last_heartbeat_time_)
+      - PROTOBUF_FIELD_OFFSET(UserDataInfo, _impl_.accountid_)>(
+          reinterpret_cast<char*>(&_impl_.accountid_),
+          reinterpret_cast<char*>(&other->_impl_.accountid_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata UserDataInfo::GetMetadata() const {
-  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+  return ::_pbi::AssignDescriptors(
       &descriptor_table_core_5fuser_2eproto_getter, &descriptor_table_core_5fuser_2eproto_once,
       file_level_metadata_core_5fuser_2eproto[2]);
 }
@@ -725,13 +732,16 @@ void UserDataInfo::InternalSwap(UserDataInfo* other) {
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace core
 PROTOBUF_NAMESPACE_OPEN
-template<> PROTOBUF_NOINLINE ::core::UsrSvrMappingData_MappingEntry_DoNotUse* Arena::CreateMaybeMessage< ::core::UsrSvrMappingData_MappingEntry_DoNotUse >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::core::UsrSvrMappingData_MappingEntry_DoNotUse*
+Arena::CreateMaybeMessage< ::core::UsrSvrMappingData_MappingEntry_DoNotUse >(Arena* arena) {
   return Arena::CreateMessageInternal< ::core::UsrSvrMappingData_MappingEntry_DoNotUse >(arena);
 }
-template<> PROTOBUF_NOINLINE ::core::UsrSvrMappingData* Arena::CreateMaybeMessage< ::core::UsrSvrMappingData >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::core::UsrSvrMappingData*
+Arena::CreateMaybeMessage< ::core::UsrSvrMappingData >(Arena* arena) {
   return Arena::CreateMessageInternal< ::core::UsrSvrMappingData >(arena);
 }
-template<> PROTOBUF_NOINLINE ::core::UserDataInfo* Arena::CreateMaybeMessage< ::core::UserDataInfo >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::core::UserDataInfo*
+Arena::CreateMaybeMessage< ::core::UserDataInfo >(Arena* arena) {
   return Arena::CreateMessageInternal< ::core::UserDataInfo >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE

@@ -16,32 +16,38 @@
 #include <google/protobuf/port_def.inc>
 
 PROTOBUF_PRAGMA_INIT_SEG
+
+namespace _pb = ::PROTOBUF_NAMESPACE_ID;
+namespace _pbi = _pb::internal;
+
 namespace ErrorCode {
 }  // namespace ErrorCode
-static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_err_5fcode_2eproto[1];
-static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_err_5fcode_2eproto = nullptr;
+static const ::_pb::EnumDescriptor* file_level_enum_descriptors_err_5fcode_2eproto[1];
+static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_err_5fcode_2eproto = nullptr;
 const uint32_t TableStruct_err_5fcode_2eproto::offsets[1] = {};
-static constexpr ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema* schemas = nullptr;
-static constexpr ::PROTOBUF_NAMESPACE_ID::Message* const* file_default_instances = nullptr;
+static constexpr ::_pbi::MigrationSchema* schemas = nullptr;
+static constexpr ::_pb::Message* const* file_default_instances = nullptr;
 
 const char descriptor_table_protodef_err_5fcode_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\016err_code.proto\022\tErrorCode*1\n\tErrorCode"
   "\022\021\n\rError_unknown\020\000\022\021\n\rError_success\020\001b\006"
   "proto3"
   ;
-static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_err_5fcode_2eproto_once;
-const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_err_5fcode_2eproto = {
-  false, false, 86, descriptor_table_protodef_err_5fcode_2eproto, "err_code.proto", 
-  &descriptor_table_err_5fcode_2eproto_once, nullptr, 0, 0,
-  schemas, file_default_instances, TableStruct_err_5fcode_2eproto::offsets,
-  nullptr, file_level_enum_descriptors_err_5fcode_2eproto, file_level_service_descriptors_err_5fcode_2eproto,
+static ::_pbi::once_flag descriptor_table_err_5fcode_2eproto_once;
+const ::_pbi::DescriptorTable descriptor_table_err_5fcode_2eproto = {
+    false, false, 86, descriptor_table_protodef_err_5fcode_2eproto,
+    "err_code.proto",
+    &descriptor_table_err_5fcode_2eproto_once, nullptr, 0, 0,
+    schemas, file_default_instances, TableStruct_err_5fcode_2eproto::offsets,
+    nullptr, file_level_enum_descriptors_err_5fcode_2eproto,
+    file_level_service_descriptors_err_5fcode_2eproto,
 };
-PROTOBUF_ATTRIBUTE_WEAK const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable* descriptor_table_err_5fcode_2eproto_getter() {
+PROTOBUF_ATTRIBUTE_WEAK const ::_pbi::DescriptorTable* descriptor_table_err_5fcode_2eproto_getter() {
   return &descriptor_table_err_5fcode_2eproto;
 }
 
 // Force running AddDescriptors() at dynamic initialization time.
-PROTOBUF_ATTRIBUTE_INIT_PRIORITY static ::PROTOBUF_NAMESPACE_ID::internal::AddDescriptorsRunner dynamic_init_dummy_err_5fcode_2eproto(&descriptor_table_err_5fcode_2eproto);
+PROTOBUF_ATTRIBUTE_INIT_PRIORITY2 static ::_pbi::AddDescriptorsRunner dynamic_init_dummy_err_5fcode_2eproto(&descriptor_table_err_5fcode_2eproto);
 namespace ErrorCode {
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ErrorCode_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_err_5fcode_2eproto);

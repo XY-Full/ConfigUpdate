@@ -16,22 +16,26 @@
 #include <google/protobuf/port_def.inc>
 
 PROTOBUF_PRAGMA_INIT_SEG
+
+namespace _pb = ::PROTOBUF_NAMESPACE_ID;
+namespace _pbi = _pb::internal;
+
 namespace cs {
-constexpr test::test(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized){}
+PROTOBUF_CONSTEXPR test::test(
+    ::_pbi::ConstantInitialized) {}
 struct testDefaultTypeInternal {
-  constexpr testDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR testDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
   ~testDefaultTypeInternal() {}
   union {
     test _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT testDefaultTypeInternal _test_default_instance_;
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 testDefaultTypeInternal _test_default_instance_;
 }  // namespace cs
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_base_2eproto[1];
-static constexpr ::PROTOBUF_NAMESPACE_ID::EnumDescriptor const** file_level_enum_descriptors_base_2eproto = nullptr;
-static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_base_2eproto = nullptr;
+static ::_pb::Metadata file_level_metadata_base_2eproto[1];
+static constexpr ::_pb::EnumDescriptor const** file_level_enum_descriptors_base_2eproto = nullptr;
+static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_base_2eproto = nullptr;
 
 const uint32_t TableStruct_base_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   ~0u,  // no _has_bits_
@@ -41,30 +45,32 @@ const uint32_t TableStruct_base_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(pro
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
 };
-static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
+static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::cs::test)},
 };
 
-static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::cs::_test_default_instance_),
+static const ::_pb::Message* const file_default_instances[] = {
+  &::cs::_test_default_instance_._instance,
 };
 
 const char descriptor_table_protodef_base_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\nbase.proto\022\002cs\"\006\n\004testb\006proto3"
   ;
-static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_base_2eproto_once;
-const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_base_2eproto = {
-  false, false, 32, descriptor_table_protodef_base_2eproto, "base.proto", 
-  &descriptor_table_base_2eproto_once, nullptr, 0, 1,
-  schemas, file_default_instances, TableStruct_base_2eproto::offsets,
-  file_level_metadata_base_2eproto, file_level_enum_descriptors_base_2eproto, file_level_service_descriptors_base_2eproto,
+static ::_pbi::once_flag descriptor_table_base_2eproto_once;
+const ::_pbi::DescriptorTable descriptor_table_base_2eproto = {
+    false, false, 32, descriptor_table_protodef_base_2eproto,
+    "base.proto",
+    &descriptor_table_base_2eproto_once, nullptr, 0, 1,
+    schemas, file_default_instances, TableStruct_base_2eproto::offsets,
+    file_level_metadata_base_2eproto, file_level_enum_descriptors_base_2eproto,
+    file_level_service_descriptors_base_2eproto,
 };
-PROTOBUF_ATTRIBUTE_WEAK const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable* descriptor_table_base_2eproto_getter() {
+PROTOBUF_ATTRIBUTE_WEAK const ::_pbi::DescriptorTable* descriptor_table_base_2eproto_getter() {
   return &descriptor_table_base_2eproto;
 }
 
 // Force running AddDescriptors() at dynamic initialization time.
-PROTOBUF_ATTRIBUTE_INIT_PRIORITY static ::PROTOBUF_NAMESPACE_ID::internal::AddDescriptorsRunner dynamic_init_dummy_base_2eproto(&descriptor_table_base_2eproto);
+PROTOBUF_ATTRIBUTE_INIT_PRIORITY2 static ::_pbi::AddDescriptorsRunner dynamic_init_dummy_base_2eproto(&descriptor_table_base_2eproto);
 namespace cs {
 
 // ===================================================================
@@ -80,6 +86,7 @@ test::test(::PROTOBUF_NAMESPACE_ID::Arena* arena,
 }
 test::test(const test& from)
   : ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase() {
+  test* const _this = this; (void)_this;
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   // @@protoc_insertion_point(copy_constructor:cs.test)
 }
@@ -101,7 +108,7 @@ const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*test::GetClassData() const { r
 
 
 ::PROTOBUF_NAMESPACE_ID::Metadata test::GetMetadata() const {
-  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+  return ::_pbi::AssignDescriptors(
       &descriptor_table_base_2eproto_getter, &descriptor_table_base_2eproto_once,
       file_level_metadata_base_2eproto[0]);
 }
@@ -109,7 +116,8 @@ const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*test::GetClassData() const { r
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace cs
 PROTOBUF_NAMESPACE_OPEN
-template<> PROTOBUF_NOINLINE ::cs::test* Arena::CreateMaybeMessage< ::cs::test >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::cs::test*
+Arena::CreateMaybeMessage< ::cs::test >(Arena* arena) {
   return Arena::CreateMessageInternal< ::cs::test >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE

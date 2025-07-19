@@ -21,7 +21,7 @@ compile_proto_if_needed() {
         # -nt 是检测文件是否比另一个文件更（gèng）新 翻译为英文叫做 newer than
         if [[ ! -f "$out_cc" || "$proto_path" -nt "$out_cc" ]]; then
             echo -e "${BLUE}Recompiling $proto_file ...${NC}"
-            cd $src_dir && $protoc_path/protoc3 --proto_path=. --proto_path=$path/proto --cpp_out=$out_dir $proto_file
+            cd $src_dir && $protoc_path/protoc --proto_path=. --proto_path=$path/proto --cpp_out=$out_dir $proto_file
         # else
         #     echo -e "${YELLOW}Up-to-date: $proto_file${NC}"
         fi

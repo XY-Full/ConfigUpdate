@@ -16,48 +16,55 @@
 #include <google/protobuf/port_def.inc>
 
 PROTOBUF_PRAGMA_INIT_SEG
+
+namespace _pb = ::PROTOBUF_NAMESPACE_ID;
+namespace _pbi = _pb::internal;
+
 namespace cs {
-constexpr ConfigUpdate_Request::ConfigUpdate_Request(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : update_file_(){}
+PROTOBUF_CONSTEXPR ConfigUpdate_Request::ConfigUpdate_Request(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.update_file_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}} {}
 struct ConfigUpdate_RequestDefaultTypeInternal {
-  constexpr ConfigUpdate_RequestDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR ConfigUpdate_RequestDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
   ~ConfigUpdate_RequestDefaultTypeInternal() {}
   union {
     ConfigUpdate_Request _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT ConfigUpdate_RequestDefaultTypeInternal _ConfigUpdate_Request_default_instance_;
-constexpr ConfigUpdate_Response::ConfigUpdate_Response(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : err_(0){}
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ConfigUpdate_RequestDefaultTypeInternal _ConfigUpdate_Request_default_instance_;
+PROTOBUF_CONSTEXPR ConfigUpdate_Response::ConfigUpdate_Response(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.err_)*/0
+  , /*decltype(_impl_._cached_size_)*/{}} {}
 struct ConfigUpdate_ResponseDefaultTypeInternal {
-  constexpr ConfigUpdate_ResponseDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR ConfigUpdate_ResponseDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
   ~ConfigUpdate_ResponseDefaultTypeInternal() {}
   union {
     ConfigUpdate_Response _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT ConfigUpdate_ResponseDefaultTypeInternal _ConfigUpdate_Response_default_instance_;
-constexpr ConfigUpdate::ConfigUpdate(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : request_(nullptr)
-  , response_(nullptr){}
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ConfigUpdate_ResponseDefaultTypeInternal _ConfigUpdate_Response_default_instance_;
+PROTOBUF_CONSTEXPR ConfigUpdate::ConfigUpdate(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.request_)*/nullptr
+  , /*decltype(_impl_.response_)*/nullptr
+  , /*decltype(_impl_._cached_size_)*/{}} {}
 struct ConfigUpdateDefaultTypeInternal {
-  constexpr ConfigUpdateDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR ConfigUpdateDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
   ~ConfigUpdateDefaultTypeInternal() {}
   union {
     ConfigUpdate _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT ConfigUpdateDefaultTypeInternal _ConfigUpdate_default_instance_;
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ConfigUpdateDefaultTypeInternal _ConfigUpdate_default_instance_;
 }  // namespace cs
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_config_5fupdate_2eproto[3];
-static constexpr ::PROTOBUF_NAMESPACE_ID::EnumDescriptor const** file_level_enum_descriptors_config_5fupdate_2eproto = nullptr;
-static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_config_5fupdate_2eproto = nullptr;
+static ::_pb::Metadata file_level_metadata_config_5fupdate_2eproto[3];
+static constexpr ::_pb::EnumDescriptor const** file_level_enum_descriptors_config_5fupdate_2eproto = nullptr;
+static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_config_5fupdate_2eproto = nullptr;
 
 const uint32_t TableStruct_config_5fupdate_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   ~0u,  // no _has_bits_
@@ -66,33 +73,33 @@ const uint32_t TableStruct_config_5fupdate_2eproto::offsets[] PROTOBUF_SECTION_V
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::cs::ConfigUpdate_Request, update_file_),
+  PROTOBUF_FIELD_OFFSET(::cs::ConfigUpdate_Request, _impl_.update_file_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::cs::ConfigUpdate_Response, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::cs::ConfigUpdate_Response, err_),
+  PROTOBUF_FIELD_OFFSET(::cs::ConfigUpdate_Response, _impl_.err_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::cs::ConfigUpdate, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::cs::ConfigUpdate, request_),
-  PROTOBUF_FIELD_OFFSET(::cs::ConfigUpdate, response_),
+  PROTOBUF_FIELD_OFFSET(::cs::ConfigUpdate, _impl_.request_),
+  PROTOBUF_FIELD_OFFSET(::cs::ConfigUpdate, _impl_.response_),
 };
-static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
+static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::cs::ConfigUpdate_Request)},
   { 7, -1, -1, sizeof(::cs::ConfigUpdate_Response)},
   { 14, -1, -1, sizeof(::cs::ConfigUpdate)},
 };
 
-static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::cs::_ConfigUpdate_Request_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::cs::_ConfigUpdate_Response_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::cs::_ConfigUpdate_default_instance_),
+static const ::_pb::Message* const file_default_instances[] = {
+  &::cs::_ConfigUpdate_Request_default_instance_._instance,
+  &::cs::_ConfigUpdate_Response_default_instance_._instance,
+  &::cs::_ConfigUpdate_default_instance_._instance,
 };
 
 const char descriptor_table_protodef_config_5fupdate_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
@@ -103,22 +110,24 @@ const char descriptor_table_protodef_config_5fupdate_2eproto[] PROTOBUF_SECTION_
   "ate_file\030\001 \003(\t\032\027\n\010Response\022\013\n\003err\030\001 \001(\005b"
   "\006proto3"
   ;
-static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_config_5fupdate_2eproto_deps[1] = {
+static const ::_pbi::DescriptorTable* const descriptor_table_config_5fupdate_2eproto_deps[1] = {
   &::descriptor_table_base_2eproto,
 };
-static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_config_5fupdate_2eproto_once;
-const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_config_5fupdate_2eproto = {
-  false, false, 207, descriptor_table_protodef_config_5fupdate_2eproto, "config_update.proto", 
-  &descriptor_table_config_5fupdate_2eproto_once, descriptor_table_config_5fupdate_2eproto_deps, 1, 3,
-  schemas, file_default_instances, TableStruct_config_5fupdate_2eproto::offsets,
-  file_level_metadata_config_5fupdate_2eproto, file_level_enum_descriptors_config_5fupdate_2eproto, file_level_service_descriptors_config_5fupdate_2eproto,
+static ::_pbi::once_flag descriptor_table_config_5fupdate_2eproto_once;
+const ::_pbi::DescriptorTable descriptor_table_config_5fupdate_2eproto = {
+    false, false, 207, descriptor_table_protodef_config_5fupdate_2eproto,
+    "config_update.proto",
+    &descriptor_table_config_5fupdate_2eproto_once, descriptor_table_config_5fupdate_2eproto_deps, 1, 3,
+    schemas, file_default_instances, TableStruct_config_5fupdate_2eproto::offsets,
+    file_level_metadata_config_5fupdate_2eproto, file_level_enum_descriptors_config_5fupdate_2eproto,
+    file_level_service_descriptors_config_5fupdate_2eproto,
 };
-PROTOBUF_ATTRIBUTE_WEAK const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable* descriptor_table_config_5fupdate_2eproto_getter() {
+PROTOBUF_ATTRIBUTE_WEAK const ::_pbi::DescriptorTable* descriptor_table_config_5fupdate_2eproto_getter() {
   return &descriptor_table_config_5fupdate_2eproto;
 }
 
 // Force running AddDescriptors() at dynamic initialization time.
-PROTOBUF_ATTRIBUTE_INIT_PRIORITY static ::PROTOBUF_NAMESPACE_ID::internal::AddDescriptorsRunner dynamic_init_dummy_config_5fupdate_2eproto(&descriptor_table_config_5fupdate_2eproto);
+PROTOBUF_ATTRIBUTE_INIT_PRIORITY2 static ::_pbi::AddDescriptorsRunner dynamic_init_dummy_config_5fupdate_2eproto(&descriptor_table_config_5fupdate_2eproto);
 namespace cs {
 
 // ===================================================================
@@ -129,43 +138,47 @@ class ConfigUpdate_Request::_Internal {
 
 ConfigUpdate_Request::ConfigUpdate_Request(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
-  update_file_(arena) {
-  SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
   // @@protoc_insertion_point(arena_constructor:cs.ConfigUpdate.Request)
 }
 ConfigUpdate_Request::ConfigUpdate_Request(const ConfigUpdate_Request& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message(),
-      update_file_(from.update_file_) {
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  ConfigUpdate_Request* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.update_file_){from._impl_.update_file_}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   // @@protoc_insertion_point(copy_constructor:cs.ConfigUpdate.Request)
 }
 
-inline void ConfigUpdate_Request::SharedCtor() {
+inline void ConfigUpdate_Request::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.update_file_){arena}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
 }
 
 ConfigUpdate_Request::~ConfigUpdate_Request() {
   // @@protoc_insertion_point(destructor:cs.ConfigUpdate.Request)
-  if (GetArenaForAllocation() != nullptr) return;
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 inline void ConfigUpdate_Request::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.update_file_.~RepeatedPtrField();
 }
 
-void ConfigUpdate_Request::ArenaDtor(void* object) {
-  ConfigUpdate_Request* _this = reinterpret_cast< ConfigUpdate_Request* >(object);
-  (void)_this;
-}
-void ConfigUpdate_Request::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void ConfigUpdate_Request::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
+  _impl_._cached_size_.Set(size);
 }
 
 void ConfigUpdate_Request::Clear() {
@@ -174,15 +187,15 @@ void ConfigUpdate_Request::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  update_file_.Clear();
+  _impl_.update_file_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* ConfigUpdate_Request::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* ConfigUpdate_Request::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // repeated string update_file = 1;
       case 1:
@@ -191,9 +204,9 @@ const char* ConfigUpdate_Request::_InternalParse(const char* ptr, ::PROTOBUF_NAM
           do {
             ptr += 1;
             auto str = _internal_add_update_file();
-            ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-            CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "cs.ConfigUpdate.Request.update_file"));
+            ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
             CHK_(ptr);
+            CHK_(::_pbi::VerifyUTF8(str, "cs.ConfigUpdate.Request.update_file"));
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
         } else
@@ -239,7 +252,7 @@ uint8_t* ConfigUpdate_Request::_InternalSerialize(
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:cs.ConfigUpdate.Request)
@@ -256,36 +269,32 @@ size_t ConfigUpdate_Request::ByteSizeLong() const {
 
   // repeated string update_file = 1;
   total_size += 1 *
-      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(update_file_.size());
-  for (int i = 0, n = update_file_.size(); i < n; i++) {
+      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(_impl_.update_file_.size());
+  for (int i = 0, n = _impl_.update_file_.size(); i < n; i++) {
     total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-      update_file_.Get(i));
+      _impl_.update_file_.Get(i));
   }
 
-  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ConfigUpdate_Request::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
     ConfigUpdate_Request::MergeImpl
 };
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ConfigUpdate_Request::GetClassData() const { return &_class_data_; }
 
-void ConfigUpdate_Request::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
-                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-  static_cast<ConfigUpdate_Request *>(to)->MergeFrom(
-      static_cast<const ConfigUpdate_Request &>(from));
-}
 
-
-void ConfigUpdate_Request::MergeFrom(const ConfigUpdate_Request& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:cs.ConfigUpdate.Request)
-  GOOGLE_DCHECK_NE(&from, this);
+void ConfigUpdate_Request::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<ConfigUpdate_Request*>(&to_msg);
+  auto& from = static_cast<const ConfigUpdate_Request&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:cs.ConfigUpdate.Request)
+  GOOGLE_DCHECK_NE(&from, _this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  update_file_.MergeFrom(from.update_file_);
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _this->_impl_.update_file_.MergeFrom(from._impl_.update_file_);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ConfigUpdate_Request::CopyFrom(const ConfigUpdate_Request& from) {
@@ -302,11 +311,11 @@ bool ConfigUpdate_Request::IsInitialized() const {
 void ConfigUpdate_Request::InternalSwap(ConfigUpdate_Request* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  update_file_.InternalSwap(&other->update_file_);
+  _impl_.update_file_.InternalSwap(&other->_impl_.update_file_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ConfigUpdate_Request::GetMetadata() const {
-  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+  return ::_pbi::AssignDescriptors(
       &descriptor_table_config_5fupdate_2eproto_getter, &descriptor_table_config_5fupdate_2eproto_once,
       file_level_metadata_config_5fupdate_2eproto[0]);
 }
@@ -320,42 +329,46 @@ class ConfigUpdate_Response::_Internal {
 ConfigUpdate_Response::ConfigUpdate_Response(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
-  SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
+  SharedCtor(arena, is_message_owned);
   // @@protoc_insertion_point(arena_constructor:cs.ConfigUpdate.Response)
 }
 ConfigUpdate_Response::ConfigUpdate_Response(const ConfigUpdate_Response& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
+  ConfigUpdate_Response* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.err_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  err_ = from.err_;
+  _this->_impl_.err_ = from._impl_.err_;
   // @@protoc_insertion_point(copy_constructor:cs.ConfigUpdate.Response)
 }
 
-inline void ConfigUpdate_Response::SharedCtor() {
-err_ = 0;
+inline void ConfigUpdate_Response::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.err_){0}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
 }
 
 ConfigUpdate_Response::~ConfigUpdate_Response() {
   // @@protoc_insertion_point(destructor:cs.ConfigUpdate.Response)
-  if (GetArenaForAllocation() != nullptr) return;
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 inline void ConfigUpdate_Response::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
 }
 
-void ConfigUpdate_Response::ArenaDtor(void* object) {
-  ConfigUpdate_Response* _this = reinterpret_cast< ConfigUpdate_Response* >(object);
-  (void)_this;
-}
-void ConfigUpdate_Response::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void ConfigUpdate_Response::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
+  _impl_._cached_size_.Set(size);
 }
 
 void ConfigUpdate_Response::Clear() {
@@ -364,20 +377,20 @@ void ConfigUpdate_Response::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  err_ = 0;
+  _impl_.err_ = 0;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* ConfigUpdate_Response::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* ConfigUpdate_Response::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // int32 err = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
-          err_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          _impl_.err_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -414,11 +427,11 @@ uint8_t* ConfigUpdate_Response::_InternalSerialize(
   // int32 err = 1;
   if (this->_internal_err() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(1, this->_internal_err(), target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_err(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:cs.ConfigUpdate.Response)
@@ -435,35 +448,31 @@ size_t ConfigUpdate_Response::ByteSizeLong() const {
 
   // int32 err = 1;
   if (this->_internal_err() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32SizePlusOne(this->_internal_err());
+    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_err());
   }
 
-  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ConfigUpdate_Response::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
     ConfigUpdate_Response::MergeImpl
 };
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ConfigUpdate_Response::GetClassData() const { return &_class_data_; }
 
-void ConfigUpdate_Response::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
-                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-  static_cast<ConfigUpdate_Response *>(to)->MergeFrom(
-      static_cast<const ConfigUpdate_Response &>(from));
-}
 
-
-void ConfigUpdate_Response::MergeFrom(const ConfigUpdate_Response& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:cs.ConfigUpdate.Response)
-  GOOGLE_DCHECK_NE(&from, this);
+void ConfigUpdate_Response::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<ConfigUpdate_Response*>(&to_msg);
+  auto& from = static_cast<const ConfigUpdate_Response&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:cs.ConfigUpdate.Response)
+  GOOGLE_DCHECK_NE(&from, _this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   if (from._internal_err() != 0) {
-    _internal_set_err(from._internal_err());
+    _this->_internal_set_err(from._internal_err());
   }
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ConfigUpdate_Response::CopyFrom(const ConfigUpdate_Response& from) {
@@ -480,11 +489,11 @@ bool ConfigUpdate_Response::IsInitialized() const {
 void ConfigUpdate_Response::InternalSwap(ConfigUpdate_Response* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  swap(err_, other->err_);
+  swap(_impl_.err_, other->_impl_.err_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ConfigUpdate_Response::GetMetadata() const {
-  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+  return ::_pbi::AssignDescriptors(
       &descriptor_table_config_5fupdate_2eproto_getter, &descriptor_table_config_5fupdate_2eproto_once,
       file_level_metadata_config_5fupdate_2eproto[1]);
 }
@@ -499,65 +508,64 @@ class ConfigUpdate::_Internal {
 
 const ::cs::ConfigUpdate_Request&
 ConfigUpdate::_Internal::request(const ConfigUpdate* msg) {
-  return *msg->request_;
+  return *msg->_impl_.request_;
 }
 const ::cs::ConfigUpdate_Response&
 ConfigUpdate::_Internal::response(const ConfigUpdate* msg) {
-  return *msg->response_;
+  return *msg->_impl_.response_;
 }
 ConfigUpdate::ConfigUpdate(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
-  SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
+  SharedCtor(arena, is_message_owned);
   // @@protoc_insertion_point(arena_constructor:cs.ConfigUpdate)
 }
 ConfigUpdate::ConfigUpdate(const ConfigUpdate& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
+  ConfigUpdate* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.request_){nullptr}
+    , decltype(_impl_.response_){nullptr}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   if (from._internal_has_request()) {
-    request_ = new ::cs::ConfigUpdate_Request(*from.request_);
-  } else {
-    request_ = nullptr;
+    _this->_impl_.request_ = new ::cs::ConfigUpdate_Request(*from._impl_.request_);
   }
   if (from._internal_has_response()) {
-    response_ = new ::cs::ConfigUpdate_Response(*from.response_);
-  } else {
-    response_ = nullptr;
+    _this->_impl_.response_ = new ::cs::ConfigUpdate_Response(*from._impl_.response_);
   }
   // @@protoc_insertion_point(copy_constructor:cs.ConfigUpdate)
 }
 
-inline void ConfigUpdate::SharedCtor() {
-::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-    reinterpret_cast<char*>(&request_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&response_) -
-    reinterpret_cast<char*>(&request_)) + sizeof(response_));
+inline void ConfigUpdate::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.request_){nullptr}
+    , decltype(_impl_.response_){nullptr}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
 }
 
 ConfigUpdate::~ConfigUpdate() {
   // @@protoc_insertion_point(destructor:cs.ConfigUpdate)
-  if (GetArenaForAllocation() != nullptr) return;
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 inline void ConfigUpdate::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  if (this != internal_default_instance()) delete request_;
-  if (this != internal_default_instance()) delete response_;
+  if (this != internal_default_instance()) delete _impl_.request_;
+  if (this != internal_default_instance()) delete _impl_.response_;
 }
 
-void ConfigUpdate::ArenaDtor(void* object) {
-  ConfigUpdate* _this = reinterpret_cast< ConfigUpdate* >(object);
-  (void)_this;
-}
-void ConfigUpdate::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void ConfigUpdate::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
+  _impl_._cached_size_.Set(size);
 }
 
 void ConfigUpdate::Clear() {
@@ -566,22 +574,22 @@ void ConfigUpdate::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  if (GetArenaForAllocation() == nullptr && request_ != nullptr) {
-    delete request_;
+  if (GetArenaForAllocation() == nullptr && _impl_.request_ != nullptr) {
+    delete _impl_.request_;
   }
-  request_ = nullptr;
-  if (GetArenaForAllocation() == nullptr && response_ != nullptr) {
-    delete response_;
+  _impl_.request_ = nullptr;
+  if (GetArenaForAllocation() == nullptr && _impl_.response_ != nullptr) {
+    delete _impl_.response_;
   }
-  response_ = nullptr;
+  _impl_.response_ = nullptr;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* ConfigUpdate::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* ConfigUpdate::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // .cs.ConfigUpdate.Request request = 1;
       case 1:
@@ -630,22 +638,20 @@ uint8_t* ConfigUpdate::_InternalSerialize(
 
   // .cs.ConfigUpdate.Request request = 1;
   if (this->_internal_has_request()) {
-    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        1, _Internal::request(this), target, stream);
+      InternalWriteMessage(1, _Internal::request(this),
+        _Internal::request(this).GetCachedSize(), target, stream);
   }
 
   // .cs.ConfigUpdate.Response response = 2;
   if (this->_internal_has_response()) {
-    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        2, _Internal::response(this), target, stream);
+      InternalWriteMessage(2, _Internal::response(this),
+        _Internal::response(this).GetCachedSize(), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:cs.ConfigUpdate)
@@ -664,45 +670,43 @@ size_t ConfigUpdate::ByteSizeLong() const {
   if (this->_internal_has_request()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *request_);
+        *_impl_.request_);
   }
 
   // .cs.ConfigUpdate.Response response = 2;
   if (this->_internal_has_response()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *response_);
+        *_impl_.response_);
   }
 
-  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData ConfigUpdate::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
     ConfigUpdate::MergeImpl
 };
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*ConfigUpdate::GetClassData() const { return &_class_data_; }
 
-void ConfigUpdate::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
-                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-  static_cast<ConfigUpdate *>(to)->MergeFrom(
-      static_cast<const ConfigUpdate &>(from));
-}
 
-
-void ConfigUpdate::MergeFrom(const ConfigUpdate& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:cs.ConfigUpdate)
-  GOOGLE_DCHECK_NE(&from, this);
+void ConfigUpdate::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<ConfigUpdate*>(&to_msg);
+  auto& from = static_cast<const ConfigUpdate&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:cs.ConfigUpdate)
+  GOOGLE_DCHECK_NE(&from, _this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   if (from._internal_has_request()) {
-    _internal_mutable_request()->::cs::ConfigUpdate_Request::MergeFrom(from._internal_request());
+    _this->_internal_mutable_request()->::cs::ConfigUpdate_Request::MergeFrom(
+        from._internal_request());
   }
   if (from._internal_has_response()) {
-    _internal_mutable_response()->::cs::ConfigUpdate_Response::MergeFrom(from._internal_response());
+    _this->_internal_mutable_response()->::cs::ConfigUpdate_Response::MergeFrom(
+        from._internal_response());
   }
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void ConfigUpdate::CopyFrom(const ConfigUpdate& from) {
@@ -720,15 +724,15 @@ void ConfigUpdate::InternalSwap(ConfigUpdate* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(ConfigUpdate, response_)
-      + sizeof(ConfigUpdate::response_)
-      - PROTOBUF_FIELD_OFFSET(ConfigUpdate, request_)>(
-          reinterpret_cast<char*>(&request_),
-          reinterpret_cast<char*>(&other->request_));
+      PROTOBUF_FIELD_OFFSET(ConfigUpdate, _impl_.response_)
+      + sizeof(ConfigUpdate::_impl_.response_)
+      - PROTOBUF_FIELD_OFFSET(ConfigUpdate, _impl_.request_)>(
+          reinterpret_cast<char*>(&_impl_.request_),
+          reinterpret_cast<char*>(&other->_impl_.request_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata ConfigUpdate::GetMetadata() const {
-  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+  return ::_pbi::AssignDescriptors(
       &descriptor_table_config_5fupdate_2eproto_getter, &descriptor_table_config_5fupdate_2eproto_once,
       file_level_metadata_config_5fupdate_2eproto[2]);
 }
@@ -736,13 +740,16 @@ void ConfigUpdate::InternalSwap(ConfigUpdate* other) {
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace cs
 PROTOBUF_NAMESPACE_OPEN
-template<> PROTOBUF_NOINLINE ::cs::ConfigUpdate_Request* Arena::CreateMaybeMessage< ::cs::ConfigUpdate_Request >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::cs::ConfigUpdate_Request*
+Arena::CreateMaybeMessage< ::cs::ConfigUpdate_Request >(Arena* arena) {
   return Arena::CreateMessageInternal< ::cs::ConfigUpdate_Request >(arena);
 }
-template<> PROTOBUF_NOINLINE ::cs::ConfigUpdate_Response* Arena::CreateMaybeMessage< ::cs::ConfigUpdate_Response >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::cs::ConfigUpdate_Response*
+Arena::CreateMaybeMessage< ::cs::ConfigUpdate_Response >(Arena* arena) {
   return Arena::CreateMessageInternal< ::cs::ConfigUpdate_Response >(arena);
 }
-template<> PROTOBUF_NOINLINE ::cs::ConfigUpdate* Arena::CreateMaybeMessage< ::cs::ConfigUpdate >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::cs::ConfigUpdate*
+Arena::CreateMaybeMessage< ::cs::ConfigUpdate >(Arena* arena) {
   return Arena::CreateMessageInternal< ::cs::ConfigUpdate >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE

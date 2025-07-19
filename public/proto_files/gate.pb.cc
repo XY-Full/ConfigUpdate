@@ -16,46 +16,52 @@
 #include <google/protobuf/port_def.inc>
 
 PROTOBUF_PRAGMA_INIT_SEG
-constexpr Heart_Request::Heart_Request(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized){}
+
+namespace _pb = ::PROTOBUF_NAMESPACE_ID;
+namespace _pbi = _pb::internal;
+
+PROTOBUF_CONSTEXPR Heart_Request::Heart_Request(
+    ::_pbi::ConstantInitialized) {}
 struct Heart_RequestDefaultTypeInternal {
-  constexpr Heart_RequestDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR Heart_RequestDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
   ~Heart_RequestDefaultTypeInternal() {}
   union {
     Heart_Request _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT Heart_RequestDefaultTypeInternal _Heart_Request_default_instance_;
-constexpr Heart_Response::Heart_Response(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : timestamp_(int64_t{0})
-  , err_(0){}
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 Heart_RequestDefaultTypeInternal _Heart_Request_default_instance_;
+PROTOBUF_CONSTEXPR Heart_Response::Heart_Response(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.timestamp_)*/int64_t{0}
+  , /*decltype(_impl_.err_)*/0
+  , /*decltype(_impl_._cached_size_)*/{}} {}
 struct Heart_ResponseDefaultTypeInternal {
-  constexpr Heart_ResponseDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR Heart_ResponseDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
   ~Heart_ResponseDefaultTypeInternal() {}
   union {
     Heart_Response _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT Heart_ResponseDefaultTypeInternal _Heart_Response_default_instance_;
-constexpr Heart::Heart(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : request_(nullptr)
-  , response_(nullptr){}
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 Heart_ResponseDefaultTypeInternal _Heart_Response_default_instance_;
+PROTOBUF_CONSTEXPR Heart::Heart(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.request_)*/nullptr
+  , /*decltype(_impl_.response_)*/nullptr
+  , /*decltype(_impl_._cached_size_)*/{}} {}
 struct HeartDefaultTypeInternal {
-  constexpr HeartDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  PROTOBUF_CONSTEXPR HeartDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
   ~HeartDefaultTypeInternal() {}
   union {
     Heart _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT HeartDefaultTypeInternal _Heart_default_instance_;
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_gate_2eproto[3];
-static constexpr ::PROTOBUF_NAMESPACE_ID::EnumDescriptor const** file_level_enum_descriptors_gate_2eproto = nullptr;
-static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_gate_2eproto = nullptr;
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 HeartDefaultTypeInternal _Heart_default_instance_;
+static ::_pb::Metadata file_level_metadata_gate_2eproto[3];
+static constexpr ::_pb::EnumDescriptor const** file_level_enum_descriptors_gate_2eproto = nullptr;
+static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_gate_2eproto = nullptr;
 
 const uint32_t TableStruct_gate_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   ~0u,  // no _has_bits_
@@ -70,27 +76,27 @@ const uint32_t TableStruct_gate_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(pro
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::Heart_Response, err_),
-  PROTOBUF_FIELD_OFFSET(::Heart_Response, timestamp_),
+  PROTOBUF_FIELD_OFFSET(::Heart_Response, _impl_.err_),
+  PROTOBUF_FIELD_OFFSET(::Heart_Response, _impl_.timestamp_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::Heart, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::Heart, request_),
-  PROTOBUF_FIELD_OFFSET(::Heart, response_),
+  PROTOBUF_FIELD_OFFSET(::Heart, _impl_.request_),
+  PROTOBUF_FIELD_OFFSET(::Heart, _impl_.response_),
 };
-static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
+static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::Heart_Request)},
   { 6, -1, -1, sizeof(::Heart_Response)},
   { 14, -1, -1, sizeof(::Heart)},
 };
 
-static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_Heart_Request_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_Heart_Response_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_Heart_default_instance_),
+static const ::_pb::Message* const file_default_instances[] = {
+  &::_Heart_Request_default_instance_._instance,
+  &::_Heart_Response_default_instance_._instance,
+  &::_Heart_default_instance_._instance,
 };
 
 const char descriptor_table_protodef_gate_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
@@ -99,19 +105,21 @@ const char descriptor_table_protodef_gate_2eproto[] PROTOBUF_SECTION_VARIABLE(pr
   "t.Response\032\t\n\007Request\032*\n\010Response\022\013\n\003err"
   "\030\001 \001(\005\022\021\n\ttimestamp\030\002 \001(\003b\006proto3"
   ;
-static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_gate_2eproto_once;
-const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_gate_2eproto = {
-  false, false, 153, descriptor_table_protodef_gate_2eproto, "gate.proto", 
-  &descriptor_table_gate_2eproto_once, nullptr, 0, 3,
-  schemas, file_default_instances, TableStruct_gate_2eproto::offsets,
-  file_level_metadata_gate_2eproto, file_level_enum_descriptors_gate_2eproto, file_level_service_descriptors_gate_2eproto,
+static ::_pbi::once_flag descriptor_table_gate_2eproto_once;
+const ::_pbi::DescriptorTable descriptor_table_gate_2eproto = {
+    false, false, 153, descriptor_table_protodef_gate_2eproto,
+    "gate.proto",
+    &descriptor_table_gate_2eproto_once, nullptr, 0, 3,
+    schemas, file_default_instances, TableStruct_gate_2eproto::offsets,
+    file_level_metadata_gate_2eproto, file_level_enum_descriptors_gate_2eproto,
+    file_level_service_descriptors_gate_2eproto,
 };
-PROTOBUF_ATTRIBUTE_WEAK const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable* descriptor_table_gate_2eproto_getter() {
+PROTOBUF_ATTRIBUTE_WEAK const ::_pbi::DescriptorTable* descriptor_table_gate_2eproto_getter() {
   return &descriptor_table_gate_2eproto;
 }
 
 // Force running AddDescriptors() at dynamic initialization time.
-PROTOBUF_ATTRIBUTE_INIT_PRIORITY static ::PROTOBUF_NAMESPACE_ID::internal::AddDescriptorsRunner dynamic_init_dummy_gate_2eproto(&descriptor_table_gate_2eproto);
+PROTOBUF_ATTRIBUTE_INIT_PRIORITY2 static ::_pbi::AddDescriptorsRunner dynamic_init_dummy_gate_2eproto(&descriptor_table_gate_2eproto);
 
 // ===================================================================
 
@@ -126,6 +134,7 @@ Heart_Request::Heart_Request(::PROTOBUF_NAMESPACE_ID::Arena* arena,
 }
 Heart_Request::Heart_Request(const Heart_Request& from)
   : ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase() {
+  Heart_Request* const _this = this; (void)_this;
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   // @@protoc_insertion_point(copy_constructor:Heart.Request)
 }
@@ -147,7 +156,7 @@ const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*Heart_Request::GetClassData() 
 
 
 ::PROTOBUF_NAMESPACE_ID::Metadata Heart_Request::GetMetadata() const {
-  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+  return ::_pbi::AssignDescriptors(
       &descriptor_table_gate_2eproto_getter, &descriptor_table_gate_2eproto_once,
       file_level_metadata_gate_2eproto[0]);
 }
@@ -161,47 +170,50 @@ class Heart_Response::_Internal {
 Heart_Response::Heart_Response(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
-  SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
+  SharedCtor(arena, is_message_owned);
   // @@protoc_insertion_point(arena_constructor:Heart.Response)
 }
 Heart_Response::Heart_Response(const Heart_Response& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
+  Heart_Response* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.timestamp_){}
+    , decltype(_impl_.err_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&timestamp_, &from.timestamp_,
-    static_cast<size_t>(reinterpret_cast<char*>(&err_) -
-    reinterpret_cast<char*>(&timestamp_)) + sizeof(err_));
+  ::memcpy(&_impl_.timestamp_, &from._impl_.timestamp_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.err_) -
+    reinterpret_cast<char*>(&_impl_.timestamp_)) + sizeof(_impl_.err_));
   // @@protoc_insertion_point(copy_constructor:Heart.Response)
 }
 
-inline void Heart_Response::SharedCtor() {
-::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-    reinterpret_cast<char*>(&timestamp_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&err_) -
-    reinterpret_cast<char*>(&timestamp_)) + sizeof(err_));
+inline void Heart_Response::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.timestamp_){int64_t{0}}
+    , decltype(_impl_.err_){0}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
 }
 
 Heart_Response::~Heart_Response() {
   // @@protoc_insertion_point(destructor:Heart.Response)
-  if (GetArenaForAllocation() != nullptr) return;
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 inline void Heart_Response::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
 }
 
-void Heart_Response::ArenaDtor(void* object) {
-  Heart_Response* _this = reinterpret_cast< Heart_Response* >(object);
-  (void)_this;
-}
-void Heart_Response::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void Heart_Response::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
+  _impl_._cached_size_.Set(size);
 }
 
 void Heart_Response::Clear() {
@@ -210,22 +222,22 @@ void Heart_Response::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  ::memset(&timestamp_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&err_) -
-      reinterpret_cast<char*>(&timestamp_)) + sizeof(err_));
+  ::memset(&_impl_.timestamp_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&_impl_.err_) -
+      reinterpret_cast<char*>(&_impl_.timestamp_)) + sizeof(_impl_.err_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* Heart_Response::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* Heart_Response::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // int32 err = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
-          err_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          _impl_.err_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -233,7 +245,7 @@ const char* Heart_Response::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE
       // int64 timestamp = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
-          timestamp_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          _impl_.timestamp_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -270,17 +282,17 @@ uint8_t* Heart_Response::_InternalSerialize(
   // int32 err = 1;
   if (this->_internal_err() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(1, this->_internal_err(), target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_err(), target);
   }
 
   // int64 timestamp = 2;
   if (this->_internal_timestamp() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(2, this->_internal_timestamp(), target);
+    target = ::_pbi::WireFormatLite::WriteInt64ToArray(2, this->_internal_timestamp(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:Heart.Response)
@@ -297,43 +309,39 @@ size_t Heart_Response::ByteSizeLong() const {
 
   // int64 timestamp = 2;
   if (this->_internal_timestamp() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64SizePlusOne(this->_internal_timestamp());
+    total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(this->_internal_timestamp());
   }
 
   // int32 err = 1;
   if (this->_internal_err() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32SizePlusOne(this->_internal_err());
+    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_err());
   }
 
-  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData Heart_Response::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
     Heart_Response::MergeImpl
 };
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*Heart_Response::GetClassData() const { return &_class_data_; }
 
-void Heart_Response::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
-                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-  static_cast<Heart_Response *>(to)->MergeFrom(
-      static_cast<const Heart_Response &>(from));
-}
 
-
-void Heart_Response::MergeFrom(const Heart_Response& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:Heart.Response)
-  GOOGLE_DCHECK_NE(&from, this);
+void Heart_Response::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<Heart_Response*>(&to_msg);
+  auto& from = static_cast<const Heart_Response&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:Heart.Response)
+  GOOGLE_DCHECK_NE(&from, _this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   if (from._internal_timestamp() != 0) {
-    _internal_set_timestamp(from._internal_timestamp());
+    _this->_internal_set_timestamp(from._internal_timestamp());
   }
   if (from._internal_err() != 0) {
-    _internal_set_err(from._internal_err());
+    _this->_internal_set_err(from._internal_err());
   }
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void Heart_Response::CopyFrom(const Heart_Response& from) {
@@ -351,15 +359,15 @@ void Heart_Response::InternalSwap(Heart_Response* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(Heart_Response, err_)
-      + sizeof(Heart_Response::err_)
-      - PROTOBUF_FIELD_OFFSET(Heart_Response, timestamp_)>(
-          reinterpret_cast<char*>(&timestamp_),
-          reinterpret_cast<char*>(&other->timestamp_));
+      PROTOBUF_FIELD_OFFSET(Heart_Response, _impl_.err_)
+      + sizeof(Heart_Response::_impl_.err_)
+      - PROTOBUF_FIELD_OFFSET(Heart_Response, _impl_.timestamp_)>(
+          reinterpret_cast<char*>(&_impl_.timestamp_),
+          reinterpret_cast<char*>(&other->_impl_.timestamp_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata Heart_Response::GetMetadata() const {
-  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+  return ::_pbi::AssignDescriptors(
       &descriptor_table_gate_2eproto_getter, &descriptor_table_gate_2eproto_once,
       file_level_metadata_gate_2eproto[1]);
 }
@@ -374,65 +382,64 @@ class Heart::_Internal {
 
 const ::Heart_Request&
 Heart::_Internal::request(const Heart* msg) {
-  return *msg->request_;
+  return *msg->_impl_.request_;
 }
 const ::Heart_Response&
 Heart::_Internal::response(const Heart* msg) {
-  return *msg->response_;
+  return *msg->_impl_.response_;
 }
 Heart::Heart(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
-  SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
+  SharedCtor(arena, is_message_owned);
   // @@protoc_insertion_point(arena_constructor:Heart)
 }
 Heart::Heart(const Heart& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
+  Heart* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.request_){nullptr}
+    , decltype(_impl_.response_){nullptr}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   if (from._internal_has_request()) {
-    request_ = new ::Heart_Request(*from.request_);
-  } else {
-    request_ = nullptr;
+    _this->_impl_.request_ = new ::Heart_Request(*from._impl_.request_);
   }
   if (from._internal_has_response()) {
-    response_ = new ::Heart_Response(*from.response_);
-  } else {
-    response_ = nullptr;
+    _this->_impl_.response_ = new ::Heart_Response(*from._impl_.response_);
   }
   // @@protoc_insertion_point(copy_constructor:Heart)
 }
 
-inline void Heart::SharedCtor() {
-::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-    reinterpret_cast<char*>(&request_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&response_) -
-    reinterpret_cast<char*>(&request_)) + sizeof(response_));
+inline void Heart::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.request_){nullptr}
+    , decltype(_impl_.response_){nullptr}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
 }
 
 Heart::~Heart() {
   // @@protoc_insertion_point(destructor:Heart)
-  if (GetArenaForAllocation() != nullptr) return;
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
   SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 inline void Heart::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  if (this != internal_default_instance()) delete request_;
-  if (this != internal_default_instance()) delete response_;
+  if (this != internal_default_instance()) delete _impl_.request_;
+  if (this != internal_default_instance()) delete _impl_.response_;
 }
 
-void Heart::ArenaDtor(void* object) {
-  Heart* _this = reinterpret_cast< Heart* >(object);
-  (void)_this;
-}
-void Heart::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
 void Heart::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
+  _impl_._cached_size_.Set(size);
 }
 
 void Heart::Clear() {
@@ -441,22 +448,22 @@ void Heart::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  if (GetArenaForAllocation() == nullptr && request_ != nullptr) {
-    delete request_;
+  if (GetArenaForAllocation() == nullptr && _impl_.request_ != nullptr) {
+    delete _impl_.request_;
   }
-  request_ = nullptr;
-  if (GetArenaForAllocation() == nullptr && response_ != nullptr) {
-    delete response_;
+  _impl_.request_ = nullptr;
+  if (GetArenaForAllocation() == nullptr && _impl_.response_ != nullptr) {
+    delete _impl_.response_;
   }
-  response_ = nullptr;
+  _impl_.response_ = nullptr;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* Heart::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* Heart::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // .Heart.Request request = 1;
       case 1:
@@ -505,22 +512,20 @@ uint8_t* Heart::_InternalSerialize(
 
   // .Heart.Request request = 1;
   if (this->_internal_has_request()) {
-    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        1, _Internal::request(this), target, stream);
+      InternalWriteMessage(1, _Internal::request(this),
+        _Internal::request(this).GetCachedSize(), target, stream);
   }
 
   // .Heart.Response response = 2;
   if (this->_internal_has_response()) {
-    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(
-        2, _Internal::response(this), target, stream);
+      InternalWriteMessage(2, _Internal::response(this),
+        _Internal::response(this).GetCachedSize(), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:Heart)
@@ -539,45 +544,43 @@ size_t Heart::ByteSizeLong() const {
   if (this->_internal_has_request()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *request_);
+        *_impl_.request_);
   }
 
   // .Heart.Response response = 2;
   if (this->_internal_has_response()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *response_);
+        *_impl_.response_);
   }
 
-  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData Heart::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
     Heart::MergeImpl
 };
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*Heart::GetClassData() const { return &_class_data_; }
 
-void Heart::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
-                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-  static_cast<Heart *>(to)->MergeFrom(
-      static_cast<const Heart &>(from));
-}
 
-
-void Heart::MergeFrom(const Heart& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:Heart)
-  GOOGLE_DCHECK_NE(&from, this);
+void Heart::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<Heart*>(&to_msg);
+  auto& from = static_cast<const Heart&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:Heart)
+  GOOGLE_DCHECK_NE(&from, _this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   if (from._internal_has_request()) {
-    _internal_mutable_request()->::Heart_Request::MergeFrom(from._internal_request());
+    _this->_internal_mutable_request()->::Heart_Request::MergeFrom(
+        from._internal_request());
   }
   if (from._internal_has_response()) {
-    _internal_mutable_response()->::Heart_Response::MergeFrom(from._internal_response());
+    _this->_internal_mutable_response()->::Heart_Response::MergeFrom(
+        from._internal_response());
   }
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void Heart::CopyFrom(const Heart& from) {
@@ -595,28 +598,31 @@ void Heart::InternalSwap(Heart* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(Heart, response_)
-      + sizeof(Heart::response_)
-      - PROTOBUF_FIELD_OFFSET(Heart, request_)>(
-          reinterpret_cast<char*>(&request_),
-          reinterpret_cast<char*>(&other->request_));
+      PROTOBUF_FIELD_OFFSET(Heart, _impl_.response_)
+      + sizeof(Heart::_impl_.response_)
+      - PROTOBUF_FIELD_OFFSET(Heart, _impl_.request_)>(
+          reinterpret_cast<char*>(&_impl_.request_),
+          reinterpret_cast<char*>(&other->_impl_.request_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata Heart::GetMetadata() const {
-  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+  return ::_pbi::AssignDescriptors(
       &descriptor_table_gate_2eproto_getter, &descriptor_table_gate_2eproto_once,
       file_level_metadata_gate_2eproto[2]);
 }
 
 // @@protoc_insertion_point(namespace_scope)
 PROTOBUF_NAMESPACE_OPEN
-template<> PROTOBUF_NOINLINE ::Heart_Request* Arena::CreateMaybeMessage< ::Heart_Request >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::Heart_Request*
+Arena::CreateMaybeMessage< ::Heart_Request >(Arena* arena) {
   return Arena::CreateMessageInternal< ::Heart_Request >(arena);
 }
-template<> PROTOBUF_NOINLINE ::Heart_Response* Arena::CreateMaybeMessage< ::Heart_Response >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::Heart_Response*
+Arena::CreateMaybeMessage< ::Heart_Response >(Arena* arena) {
   return Arena::CreateMessageInternal< ::Heart_Response >(arena);
 }
-template<> PROTOBUF_NOINLINE ::Heart* Arena::CreateMaybeMessage< ::Heart >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::Heart*
+Arena::CreateMaybeMessage< ::Heart >(Arena* arena) {
   return Arena::CreateMessageInternal< ::Heart >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
