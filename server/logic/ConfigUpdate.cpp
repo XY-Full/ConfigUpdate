@@ -19,7 +19,7 @@ void ConfigUpdate::onConfigRequest(const NetPack& pPack)
 
     ILOG << request->update_file(0);
 
-    for(int32_t i; i < 5; i++)
+    for(int32_t i = 0; i < 5; i++)
     {
         cs::Notify notify;
         notify.mutable_config_update_output()->set_context("updateing...");
