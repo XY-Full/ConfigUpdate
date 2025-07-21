@@ -1,7 +1,4 @@
 nohup.out
-test*
-config_update.cpp
-config_update
 *.swp
 compile_commands.json
 build

@@ -11,11 +11,7 @@ add_library(common STATIC
 # 添加头文件搜索路径
 target_include_directories(common
     PUBLIC 
-    ${CMAKE_SOURCE_DIR}/logic
-    ${CMAKE_SOURCE_DIR}/busd
-    ${CMAKE_SOURCE_DIR}/protobuf/include
-    ${CMAKE_SOURCE_DIR}/protobuf/proto_files
-    ${CMAKE_SOURCE_DIR}/common
+    ${CMAKE_SOURCE_DIR}/../third/nlohmann-json
 )
 
 target_include_directories(common PUBLIC protobuf)

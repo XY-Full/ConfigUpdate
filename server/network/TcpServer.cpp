@@ -72,14 +72,15 @@ void TcpServer::acceptLoop()
             {
                 int64_t conn_id = fd_to_conn_[fd];
                 std::string len_buf;
-                if(!conn_map_[conn_id])
+                auto connPtr = conn_map_[conn_id];
+                if(!connPtr)
                 {
                     ELOG << "Invalid connection ID " << conn_id << ", closing connection";
                     cleanupConnection(fd);
                     continue;
                 }
 
-                if (!conn_map_[conn_id]->recvAll(len_buf, 4, true)) 
+                if (!connPtr->recvAll(len_buf, 4, true)) 
                 {
                     ELOG << "Failed to receive length from conn " << conn_id << ", closing connection";
                     cleanupConnection(fd);
@@ -96,7 +97,7 @@ void TcpServer::acceptLoop()
                 }
 
                 std::string full_data;
-                if (!conn_map_[conn_id]->recvAll(full_data, len)) 
+                if (!connPtr->recvAll(full_data, len)) 
                 {
                     ELOG << "Failed to receive full message from conn " << conn_id << ", closing connection";
                     cleanupConnection(fd);
@@ -152,7 +153,7 @@ void TcpServer::cleanupConnection(int fd)
         last_active_time_.erase(it->second);
         epoller_.remove(fd);
         ::close(fd);
-        std::cout << "Closed connection: " << conn_id << std::endl;
+        ILOG << "Closed connection: " << conn_id;
     }
 }
 
