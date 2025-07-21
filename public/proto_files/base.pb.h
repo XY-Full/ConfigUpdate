@@ -23,7 +23,6 @@
 #include <google/protobuf/io/coded_stream.h>
 #include <google/protobuf/arena.h>
 #include <google/protobuf/arenastring.h>
-#include <google/protobuf/generated_message_bases.h>
 #include <google/protobuf/generated_message_util.h>
 #include <google/protobuf/metadata_lite.h>
 #include <google/protobuf/generated_message_reflection.h>
@@ -46,34 +45,35 @@ struct TableStruct_base_2eproto {
 };
 extern const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_base_2eproto;
 namespace cs {
-class test;
-struct testDefaultTypeInternal;
-extern testDefaultTypeInternal _test_default_instance_;
+class ConfigUpdateOutput;
+struct ConfigUpdateOutputDefaultTypeInternal;
+extern ConfigUpdateOutputDefaultTypeInternal _ConfigUpdateOutput_default_instance_;
 }  // namespace cs
 PROTOBUF_NAMESPACE_OPEN
-template<> ::cs::test* Arena::CreateMaybeMessage<::cs::test>(Arena*);
+template<> ::cs::ConfigUpdateOutput* Arena::CreateMaybeMessage<::cs::ConfigUpdateOutput>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace cs {
 
 // ===================================================================
 
-class test final :
-    public ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase /* @@protoc_insertion_point(class_definition:cs.test) */ {
+class ConfigUpdateOutput final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:cs.ConfigUpdateOutput) */ {
  public:
-  inline test() : test(nullptr) {}
-  explicit PROTOBUF_CONSTEXPR test(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline ConfigUpdateOutput() : ConfigUpdateOutput(nullptr) {}
+  ~ConfigUpdateOutput() override;
+  explicit PROTOBUF_CONSTEXPR ConfigUpdateOutput(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  test(const test& from);
-  test(test&& from) noexcept
-    : test() {
+  ConfigUpdateOutput(const ConfigUpdateOutput& from);
+  ConfigUpdateOutput(ConfigUpdateOutput&& from) noexcept
+    : ConfigUpdateOutput() {
     *this = ::std::move(from);
   }
 
-  inline test& operator=(const test& from) {
+  inline ConfigUpdateOutput& operator=(const ConfigUpdateOutput& from) {
     CopyFrom(from);
     return *this;
   }
-  inline test& operator=(test&& from) noexcept {
+  inline ConfigUpdateOutput& operator=(ConfigUpdateOutput&& from) noexcept {
     if (this == &from) return *this;
     if (GetOwningArena() == from.GetOwningArena()
   #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
@@ -96,20 +96,20 @@ class test final :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const test& default_instance() {
+  static const ConfigUpdateOutput& default_instance() {
     return *internal_default_instance();
   }
-  static inline const test* internal_default_instance() {
-    return reinterpret_cast<const test*>(
-               &_test_default_instance_);
+  static inline const ConfigUpdateOutput* internal_default_instance() {
+    return reinterpret_cast<const ConfigUpdateOutput*>(
+               &_ConfigUpdateOutput_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     0;
 
-  friend void swap(test& a, test& b) {
+  friend void swap(ConfigUpdateOutput& a, ConfigUpdateOutput& b) {
     a.Swap(&b);
   }
-  inline void Swap(test* other) {
+  inline void Swap(ConfigUpdateOutput* other) {
     if (other == this) return;
   #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
@@ -122,7 +122,7 @@ class test final :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(test* other) {
+  void UnsafeArenaSwap(ConfigUpdateOutput* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
@@ -130,26 +130,40 @@ class test final :
 
   // implements Message ----------------------------------------------
 
-  test* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<test>(arena);
+  ConfigUpdateOutput* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<ConfigUpdateOutput>(arena);
   }
-  using ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyFrom;
-  inline void CopyFrom(const test& from) {
-    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyImpl(*this, from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const ConfigUpdateOutput& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const ConfigUpdateOutput& from) {
+    ConfigUpdateOutput::MergeImpl(*this, from);
   }
-  using ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeFrom;
-  void MergeFrom(const test& from) {
-    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeImpl(*this, from);
-  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
   public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(ConfigUpdateOutput* other);
 
   private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "cs.test";
+    return "cs.ConfigUpdateOutput";
   }
   protected:
-  explicit test(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+  explicit ConfigUpdateOutput(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                        bool is_message_owned = false);
   public:
 
@@ -162,7 +176,24 @@ class test final :
 
   // accessors -------------------------------------------------------
 
-  // @@protoc_insertion_point(class_scope:cs.test)
+  enum : int {
+    kContextFieldNumber = 1,
+  };
+  // string context = 1;
+  void clear_context();
+  const std::string& context() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_context(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_context();
+  PROTOBUF_NODISCARD std::string* release_context();
+  void set_allocated_context(std::string* context);
+  private:
+  const std::string& _internal_context() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_context(const std::string& value);
+  std::string* _internal_mutable_context();
+  public:
+
+  // @@protoc_insertion_point(class_scope:cs.ConfigUpdateOutput)
  private:
   class _Internal;
 
@@ -170,7 +201,10 @@ class test final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr context_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
+  union { Impl_ _impl_; };
   friend struct ::TableStruct_base_2eproto;
 };
 // ===================================================================
@@ -182,7 +216,57 @@ class test final :
   #pragma GCC diagnostic push
   #pragma GCC diagnostic ignored "-Wstrict-aliasing"
 #endif  // __GNUC__
-// test
+// ConfigUpdateOutput
+
+// string context = 1;
+inline void ConfigUpdateOutput::clear_context() {
+  _impl_.context_.ClearToEmpty();
+}
+inline const std::string& ConfigUpdateOutput::context() const {
+  // @@protoc_insertion_point(field_get:cs.ConfigUpdateOutput.context)
+  return _internal_context();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void ConfigUpdateOutput::set_context(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.context_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:cs.ConfigUpdateOutput.context)
+}
+inline std::string* ConfigUpdateOutput::mutable_context() {
+  std::string* _s = _internal_mutable_context();
+  // @@protoc_insertion_point(field_mutable:cs.ConfigUpdateOutput.context)
+  return _s;
+}
+inline const std::string& ConfigUpdateOutput::_internal_context() const {
+  return _impl_.context_.Get();
+}
+inline void ConfigUpdateOutput::_internal_set_context(const std::string& value) {
+  
+  _impl_.context_.Set(value, GetArenaForAllocation());
+}
+inline std::string* ConfigUpdateOutput::_internal_mutable_context() {
+  
+  return _impl_.context_.Mutable(GetArenaForAllocation());
+}
+inline std::string* ConfigUpdateOutput::release_context() {
+  // @@protoc_insertion_point(field_release:cs.ConfigUpdateOutput.context)
+  return _impl_.context_.Release();
+}
+inline void ConfigUpdateOutput::set_allocated_context(std::string* context) {
+  if (context != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.context_.SetAllocated(context, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.context_.IsDefault()) {
+    _impl_.context_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:cs.ConfigUpdateOutput.context)
+}
 
 #ifdef __GNUC__
   #pragma GCC diagnostic pop

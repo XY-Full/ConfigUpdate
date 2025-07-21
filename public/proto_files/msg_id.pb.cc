@@ -29,12 +29,13 @@ static constexpr ::_pbi::MigrationSchema* schemas = nullptr;
 static constexpr ::_pb::Message* const* file_default_instances = nullptr;
 
 const char descriptor_table_protodef_msg_5fid_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
-  "\n\014msg_id.proto\022\005MSGID*0\n\005MsgID\022\021\n\rCS_HEA"
-  "RT_BEAT\020\000\022\024\n\020CS_CONFIG_UPDATE\020\001b\006proto3"
+  "\n\014msg_id.proto\022\005MSGID*@\n\005MsgID\022\021\n\rCS_HEA"
+  "RT_BEAT\020\000\022\024\n\020CS_CONFIG_UPDATE\020\001\022\016\n\tSC_NO"
+  "TIFY\020\220Nb\006proto3"
   ;
 static ::_pbi::once_flag descriptor_table_msg_5fid_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_msg_5fid_2eproto = {
-    false, false, 79, descriptor_table_protodef_msg_5fid_2eproto,
+    false, false, 95, descriptor_table_protodef_msg_5fid_2eproto,
     "msg_id.proto",
     &descriptor_table_msg_5fid_2eproto_once, nullptr, 0, 0,
     schemas, file_default_instances, TableStruct_msg_5fid_2eproto::offsets,
@@ -56,6 +57,7 @@ bool MsgID_IsValid(int value) {
   switch (value) {
     case 0:
     case 1:
+    case 10000:
       return true;
     default:
       return false;

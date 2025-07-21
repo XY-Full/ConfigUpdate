@@ -50,12 +50,13 @@ namespace MSGID {
 enum MsgID : int {
   CS_HEART_BEAT = 0,
   CS_CONFIG_UPDATE = 1,
+  SC_NOTIFY = 10000,
   MsgID_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
   MsgID_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
 };
 bool MsgID_IsValid(int value);
 constexpr MsgID MsgID_MIN = CS_HEART_BEAT;
-constexpr MsgID MsgID_MAX = CS_CONFIG_UPDATE;
+constexpr MsgID MsgID_MAX = SC_NOTIFY;
 constexpr int MsgID_ARRAYSIZE = MsgID_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* MsgID_descriptor();

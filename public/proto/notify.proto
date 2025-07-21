@@ -1,0 +1,10 @@
+syntax = "proto3";
+package cs;
+
+import "base.proto";
+
+// SC_NOTIFY = 10000
+message Notify
+{
+    ConfigUpdateOutput config_update_output = 1;
+}
