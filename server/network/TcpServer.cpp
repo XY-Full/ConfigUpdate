@@ -66,15 +66,22 @@ void TcpServer::acceptLoop()
                 epoller_.add(client_fd);
                 conn_map_[conn_id] = std::make_shared<SocketWrapper>(client_fd);
                 fd_to_conn_[client_fd] = conn_id;
-                std::cout << "New connection: " << conn_id << std::endl;
+                ILOG << "New connection: " << conn_id;
             } 
             else 
             {
                 int64_t conn_id = fd_to_conn_[fd];
                 std::string len_buf;
+                if(!conn_map_[conn_id])
+                {
+                    ELOG << "Invalid connection ID " << conn_id << ", closing connection";
+                    cleanupConnection(fd);
+                    continue;
+                }
+
                 if (!conn_map_[conn_id]->recvAll(len_buf, 4, true)) 
                 {
-                    std::cout << "Failed to receive length from conn " << conn_id << ", closing connection\n";
+                    ELOG << "Failed to receive length from conn " << conn_id << ", closing connection";
                     cleanupConnection(fd);
                     continue;
                 }
@@ -83,7 +90,7 @@ void TcpServer::acceptLoop()
                 int32_t len = *reinterpret_cast<const int32_t*>(len_buf.data());
                 if (len <= 0 || len > 10 * 1024 * 1024) 
                 {
-                    std::cout << "Invalid message length: " << len << ", closing connection " << conn_id << std::endl;
+                    ELOG << "Invalid message length: " << len << ", closing connection " << conn_id;
                     cleanupConnection(fd);
                     continue;
                 }
@@ -91,12 +98,12 @@ void TcpServer::acceptLoop()
                 std::string full_data;
                 if (!conn_map_[conn_id]->recvAll(full_data, len)) 
                 {
-                    std::cout << "Failed to receive full message from conn " << conn_id << ", closing connection\n";
+                    ELOG << "Failed to receive full message from conn " << conn_id << ", closing connection";
                     cleanupConnection(fd);
                     continue;
                 }
 
-                ILOG << "recv from [" << conn_id << "] : " << full_data;
+                // ILOG << "recv from [" << conn_id << "] : " << full_data;
                 auto recv_pack = std::make_shared<NetPack>();
                 recv_pack->deserialize(conn_id, full_data);
                 server_to_busd->push({conn_id, recv_pack});
@@ -116,7 +123,7 @@ void TcpServer::checkHeartbeats()
     {
         if (std::chrono::duration_cast<std::chrono::seconds>(now - last_time).count() > HEARTBEAT_TIMEOUT_SECONDS) 
         {
-            std::cout << "Heartbeat timeout for conn " << conn_id << ", kicking..." << std::endl;
+            WLOG << "Heartbeat timeout for conn " << conn_id << ", kicking...";
             for (const auto& [fd, id] : fd_to_conn_) 
             {
                 if (id == conn_id) 

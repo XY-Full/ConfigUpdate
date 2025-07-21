@@ -1,6 +1,6 @@
 #include "SocketWrapper.h"
 #include <cstring>
-#include <iostream>
+#include "Log.h"
 #include <algorithm>
 
 SocketWrapper::SocketWrapper(socket_t fd) : sock_fd_(fd) {}
@@ -46,6 +46,12 @@ bool SocketWrapper::sendAll(const std::string& data)
 bool SocketWrapper::recvAll(std::string& out, size_t size, bool use_peek) 
 {
     out.clear();
+    if (sock_fd_ < 0) 
+    {
+        ELOG << "Invalid socket";
+        return false;
+    }
+
     while (out.size() < size) 
     {
         char buf[1024];
@@ -67,11 +73,20 @@ bool SocketWrapper::recvAll(std::string& out, size_t size, bool use_peek)
         } 
         else if (n == 0) 
         {
-            std::cout << "Remote side closed connection.\n";
+            ELOG << "Remote side closed connection.\n";
             return false;
         }
 
-        out.append(buf, n);
+        if (!use_peek)
+        {
+            out.append(buf, n);
+        }
+        else 
+        {
+            // 如果使用peek模式，直接原地构造，防止死循环
+            out.assign(buf, n);
+            break;
+        }
     }
     return true;
 }

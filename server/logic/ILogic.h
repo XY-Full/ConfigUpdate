@@ -7,6 +7,7 @@
     int64_t uid = pPack.uid;\
     auto recvMsg = std::make_shared<MSG_TYPE>();\
     recvMsg->ParseFromString(pPack.msg);\
+    ILOG << recvMsg->Utf8DebugString();\
     auto request = recvMsg->mutable_request();\
     auto replyMsg = std::make_shared<MSG_TYPE>();\
     auto response = replyMsg->mutable_response();\

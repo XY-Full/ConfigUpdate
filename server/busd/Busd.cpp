@@ -37,6 +37,8 @@ void Busd::sendToClient(int64_t uid, int32_t msg_id, const google::protobuf::Mes
     sendPack->uid = uid;
     sendPack->msg_id = msg_id;
 
+    ILOG << "sendToClient by uid: " << uid << " msg_id: " << msg_id << " msg: " << msg.DebugString();
+
     auto userdata = UsrSvrMap[uid];
     sendPack->conn_id = userdata.connid();
     out_channel_->push({userdata.connid(), sendPack});

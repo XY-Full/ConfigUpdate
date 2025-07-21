@@ -4,5 +4,5 @@ package cs;
 // 配置更新脚本输出内容
 message ConfigUpdateOutput
 {
-    string context = 1;
+    bytes context = 1;
 }
