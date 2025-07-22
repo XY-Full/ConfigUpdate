@@ -1,0 +1,11 @@
+BasedOnStyle: Microsoft  # 你可以换成其他基础风格，如 LLVM、WebKit 等
+BraceWrapping:
+  AfterFunction: true      # 函数后的大括号另起一行
+  AfterControlStatement: true  # 控制语句的大括号另起一行
+  BeforeElse: true         # else 前的大括号另起一行
+  BeforeWhile: true        # while 前的大括号另起一行
+IndentWidth: 4             # 缩进宽度
+ColumnLimit: 120            # 每行字符数限制
+AccessModifierOffset:	-4
+#IndentAccessModifiers: false  # 不缩进访问修饰符
+#AlignConsecutiveDeclarations: true  # 保持连续声明对齐
