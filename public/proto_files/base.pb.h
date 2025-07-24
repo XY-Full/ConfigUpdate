@@ -179,7 +179,7 @@ class ConfigUpdateOutput final :
   enum : int {
     kContextFieldNumber = 1,
   };
-  // string context = 1;
+  // bytes context = 1;
   void clear_context();
   const std::string& context() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
@@ -218,7 +218,7 @@ class ConfigUpdateOutput final :
 #endif  // __GNUC__
 // ConfigUpdateOutput
 
-// string context = 1;
+// bytes context = 1;
 inline void ConfigUpdateOutput::clear_context() {
   _impl_.context_.ClearToEmpty();
 }
@@ -230,7 +230,7 @@ template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
 void ConfigUpdateOutput::set_context(ArgT0&& arg0, ArgT... args) {
  
- _impl_.context_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+ _impl_.context_.SetBytes(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:cs.ConfigUpdateOutput.context)
 }
 inline std::string* ConfigUpdateOutput::mutable_context() {

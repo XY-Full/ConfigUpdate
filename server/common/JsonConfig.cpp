@@ -23,6 +23,66 @@ JsonConfig::JsonConfig(const std::string &path, LoadMode mode, bool autoSave) : 
     }
 }
 
+// 移动构造函数
+JsonConfig::JsonConfig(JsonConfig &&other) noexcept
+{
+    // 锁定源对象，确保转移过程中不会被修改
+    std::lock_guard<std::mutex> lock(other.callbackMutex_);
+
+    // 转移资源
+    configData_ = std::move(other.configData_);
+    configPath_ = std::move(other.configPath_);
+    loadMode_ = other.loadMode_;
+    autoSave_ = other.autoSave_;
+    dirty_ = other.dirty_;
+    fileConfigs_ = std::move(other.fileConfigs_);
+
+    // 清空源对象状态
+    other.configData_ = json{};
+    other.configPath_.clear();
+    other.loadMode_ = LoadMode::SingleFile;
+    other.autoSave_ = false;
+    other.dirty_ = false;
+    other.fileConfigs_.clear();
+
+    // 注意：不转移回调函数和锁，新对象需要重新注册回调
+}
+
+// 移动赋值运算符
+JsonConfig &JsonConfig::operator=(JsonConfig &&other) noexcept
+{
+    if (this != &other)
+    {
+        // 锁定双方对象，避免死锁
+        std::unique_lock<std::mutex> lockThis(callbackMutex_, std::defer_lock);
+        std::unique_lock<std::mutex> lockOther(other.callbackMutex_, std::defer_lock);
+        std::lock(lockThis, lockOther);
+
+        // 清空当前对象状态
+        configData_ = json{};
+        fileConfigs_.clear();
+
+        // 转移资源
+        configData_ = std::move(other.configData_);
+        configPath_ = std::move(other.configPath_);
+        loadMode_ = other.loadMode_;
+        autoSave_ = other.autoSave_;
+        dirty_ = other.dirty_;
+        fileConfigs_ = std::move(other.fileConfigs_);
+
+        // 清空源对象状态
+        other.configData_ = json{};
+        other.configPath_.clear();
+        other.loadMode_ = LoadMode::SingleFile;
+        other.autoSave_ = false;
+        other.dirty_ = false;
+        other.fileConfigs_.clear();
+
+        // 注意：回调函数列表不转移，需要在新对象重新注册
+    }
+    return *this;
+}
+
 JsonConfig::~JsonConfig()
 {
     if (autoSave_ && dirty_)

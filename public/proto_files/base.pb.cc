@@ -58,7 +58,7 @@ static const ::_pb::Message* const file_default_instances[] = {
 
 const char descriptor_table_protodef_base_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\nbase.proto\022\002cs\"%\n\022ConfigUpdateOutput\022\017"
-  "\n\007context\030\001 \001(\tb\006proto3"
+  "\n\007context\030\001 \001(\014b\006proto3"
   ;
 static ::_pbi::once_flag descriptor_table_base_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_base_2eproto = {
@@ -156,13 +156,12 @@ const char* ConfigUpdateOutput::_InternalParse(const char* ptr, ::_pbi::ParseCon
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // string context = 1;
+      // bytes context = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           auto str = _internal_mutable_context();
           ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
-          CHK_(::_pbi::VerifyUTF8(str, "cs.ConfigUpdateOutput.context"));
         } else
           goto handle_unusual;
         continue;
@@ -195,13 +194,9 @@ uint8_t* ConfigUpdateOutput::_InternalSerialize(
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // string context = 1;
+  // bytes context = 1;
   if (!this->_internal_context().empty()) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_context().data(), static_cast<int>(this->_internal_context().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "cs.ConfigUpdateOutput.context");
-    target = stream->WriteStringMaybeAliased(
+    target = stream->WriteBytesMaybeAliased(
         1, this->_internal_context(), target);
   }
 
@@ -221,10 +216,10 @@ size_t ConfigUpdateOutput::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // string context = 1;
+  // bytes context = 1;
   if (!this->_internal_context().empty()) {
     total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
         this->_internal_context());
   }
 

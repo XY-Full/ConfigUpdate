@@ -28,11 +28,21 @@ public:
         MergeDirectory
     };
 
-    explicit JsonConfig(const std::string &path = "",
-                        LoadMode mode = LoadMode::SingleFile,
-                        bool autoSave = false);
+    explicit JsonConfig(const std::string &path = "", LoadMode mode = LoadMode::SingleFile, bool autoSave = false);
+    
+    // 禁止拷贝
+    JsonConfig(const JsonConfig &) = delete;
+    JsonConfig &operator=(const JsonConfig &) = delete;
+
+    // 移动构造函数
+    JsonConfig(JsonConfig &&other) noexcept;
+
+    // 移动赋值运算符
+    JsonConfig &operator=(JsonConfig &&other) noexcept;
 
     ~JsonConfig();
+
+    std::string getPath() { return configPath_.string(); }
 
     bool load(const std::string &path = "",
               LoadMode mode = LoadMode::SingleFile);
